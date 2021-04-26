@@ -22,7 +22,7 @@ module.exports = (plop) => {
            },
            {
                type: "add",
-               path: "src/Components/Atoms{{pascalCase name}}/index.ts",
+               path: "src/Components/Atoms/{{pascalCase name}}/index.ts",
                templateFile: "plop-template-ts/injectable-index.ts.hbs",
            },
        ],
