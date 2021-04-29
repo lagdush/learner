@@ -12,8 +12,8 @@ const LoginBox: React.FC<ContentBoxProps> = () => {
 
    return (
    <Box>
-      <Input/>
-      <ActionButton/>
+      <Input label='Podaj swój kod dostępu'/>
+      <ActionButton text='Zaloguj się'/>
    </Box>
    )
    }

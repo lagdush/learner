@@ -14,13 +14,13 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 interface InputProps {
-
+label: string
 }
 
-const Input: React.FC<InputProps> = () => {
+const Input: React.FC<InputProps> = ({label}) => {
    const classes = useStyles();
    return (
-      <TextField className={classes.root} id="standard-basic" label="Podaj swój kod dostępu" />
+      <TextField className={classes.root} id="standard-basic" label={label} />
    )
    }
 
