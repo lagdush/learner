@@ -6,7 +6,7 @@ display: flex;
 flex-direction: row;
 justify-content: center;
 align-items: center;
-padding: 10px;
+padding: .8em;
 width: 13.3em;
 height: 3em;
 background: #30B0F8;
