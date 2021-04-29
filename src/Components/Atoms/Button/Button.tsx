@@ -1,17 +1,17 @@
-import React, {useState, useEffect } from 'react';
+import React from 'react';
 
-import { Container } from './Button-style'
+import {Button} from './Button-style'
 
 interface ButtonProps {
 
 }
 
-const Button: React.FC<ButtonProps> = () => {
+const ActionButton: React.FC<ButtonProps> = () => {
 
    return (
-   <Container>Button</Container>
+   <Button>Zaloguj się</Button>
    )
    }
 
 
-   export default Button
+   export default ActionButton

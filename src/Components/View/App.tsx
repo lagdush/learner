@@ -1,8 +1,14 @@
 import React from 'react';
 
+
+import LoginTemplate from '../Templates/LoginTemplate';
+import './app.css';
+
+
 function App() {
   return (
     <>
+  <LoginTemplate/>
     </>
   );
 }

@@ -99,12 +99,12 @@ module.exports = (plop) => {
    actions: [
        {
            type: "add",
-           path: "src/Components/Templates/{{pascalCase name}}/index.ts",
+           path: "src/Components/Templates/{{pascalCase name}}/{{pascalCase name}}.tsx",
            templateFile: "plop-template-ts/functionalComponent.tsx.hbs",
        },
        {
            type: "add",
-           path: "src/Components/Templates/{{pascalCase name}}/index.ts",
+           path: "src/Components/Templates/{{pascalCase name}}/{{pascalCase name}}-style.tsx",
            templateFile: "plop-template-ts/Component-style.tsx.hbs",
        },
        {
