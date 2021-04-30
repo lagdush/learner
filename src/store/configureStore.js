@@ -6,3 +6,5 @@ const createStore = () =>{
       reducer,
    })
 }
+
+export default createStore;

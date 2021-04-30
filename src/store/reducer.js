@@ -1,32 +1,16 @@
-import {createSlice} from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const httpSlice = createSlice({
-   name: 'datasForStudents',
-   initialState: {
-      user:{
-         posts: [{
-            title: '',
-            content: '',
-            photo: ''
-         }],
-         videos: [{
-            title: '',
-            url:'',
-            photo: ''
-         }],
-         quizzes: [{
-            title: '',
-            questions: {
-               question: '',
-               answers: [{
-                  text: '',
-                  isCorrect: false
-               }]
-            }
-         }],
-      }
-   },
-   reducers: {
-      
-   }
-})
+  name: 'datasForStudents',
+  initialState: {
+     dataFromApi: []
+  },
+  reducers: {
+    loadData: (data, action) => {
+      data.dataFromApi = action.payload;
+    },
+  },
+});
+
+export const { loadData } = httpSlice.actions;
+export default httpSlice.reducer;
