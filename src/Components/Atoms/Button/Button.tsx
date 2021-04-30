@@ -2,14 +2,23 @@ import React from 'react';
 
 import {Button} from './Button-style'
 
-interface ButtonProps {
-text: string
+type style = {
+   margin?: string;
+   fontSize?: string;
+   padding?: string;
+   width?: string;
+   height?: string;
 }
 
-const ActionButton: React.FC<ButtonProps> = ({text}) => {
+interface ButtonProps {
+text: string,
+style?: style
+}
+
+const ActionButton: React.FC<ButtonProps> = ({text, style}) => {
 
    return (
-   <Button>{text}</Button>
+   <Button style={style}>{text}</Button>
    )
    }
 
