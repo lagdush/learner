@@ -1,7 +1,6 @@
 import React from 'react';
 import ActionButton from '../../Atoms/Button/Button';
 import Input from '../../Atoms/Input';
-
 import { Box} from './LoginBox-style'
 
 interface ContentBoxProps {

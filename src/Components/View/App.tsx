@@ -1,11 +1,11 @@
-import LoginTemplate from '../Templates/LoginTemplate';
+import LoginView from './LoginView';
 import './app.css';
 
 
 function App() {
   return (
     <>
-  <LoginTemplate/>
+  <LoginView/>
     </>
   );
 }

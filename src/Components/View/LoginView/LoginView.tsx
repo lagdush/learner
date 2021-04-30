@@ -3,13 +3,13 @@ import Header from '../../Atoms/Header';
 import Illustration from '../../Atoms/Illustration';
 import LoginBox from '../../Molecules/LoginBox';
 
-import { Container } from './LoginTemplate-style'
+import { Container } from './LoginView-style'
 
 interface LoginTemplateProps {
 
 }
 
-const LoginTemplate: React.FC<LoginTemplateProps> = () => {
+const LoginView: React.FC<LoginTemplateProps> = () => {
 
    return (
    <Container>
@@ -21,4 +21,4 @@ const LoginTemplate: React.FC<LoginTemplateProps> = () => {
    }
 
 
-   export default LoginTemplate
+   export default LoginView
