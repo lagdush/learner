@@ -5,7 +5,7 @@ import LoginBox from '../../Molecules/LoginBox';
 
 import { Container } from './LoginView-style'
 
-interface LoginTemplateProps {
+type LoginTemplateProps = {
 
 }
 

@@ -13,14 +13,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface InputProps {
+type InputProps ={
 label: string
+onChange: (e: React.ChangeEvent<HTMLInputElement>)=>void;
 }
 
-const Input: React.FC<InputProps> = ({label}) => {
+const Input: React.FC<InputProps> = ({label, onChange}) => {
    const classes = useStyles();
    return (
-      <TextField className={classes.root} id="standard-basic" label={label} />
+      <TextField className={classes.root} id="standard-basic" label={label} onChange={onChange} />
    )
    }
 

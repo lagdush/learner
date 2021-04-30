@@ -10,15 +10,16 @@ type style = {
    height?: string;
 }
 
-interface ButtonProps {
+type ButtonProps = {
 text: string,
-style?: style
+style?: style,
+fetch?: React.MouseEventHandler<HTMLButtonElement>,
 }
 
-const ActionButton: React.FC<ButtonProps> = ({text, style}) => {
+const ActionButton: React.FC<ButtonProps> = ({text, style, fetch}) => {
 
    return (
-   <Button style={style}>{text}</Button>
+   <Button onClick={fetch} style={style}>{text}</Button>
    )
    }
 
