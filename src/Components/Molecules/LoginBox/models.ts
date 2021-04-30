@@ -30,6 +30,5 @@ user: {
    posts: fetchedPosts[],
    videos: fetchedVideos[],
    quizzes: fetchedQuizzes[],
-   _id: string
 }
 }
