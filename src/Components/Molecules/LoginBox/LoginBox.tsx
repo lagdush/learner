@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { getDataFromApi } from '../../../store/actionsToApi';
 import ActionButton from '../../Atoms/Button/Button';
 import Input from '../../Atoms/Input';
-import { Box, styleActionButton} from './LoginBox-style'
+import { Box} from './LoginBox-style'
 
 
 type ContentBoxProps = {
@@ -22,7 +22,7 @@ const LoginBox: React.FC<ContentBoxProps> = () => {
    return (
    <Box>
       <Input onChange={inputHandler} label='Podaj swój kod dostępu'/>
-      <ActionButton fetch={()=>dispatch(getDataFromApi(inputRef.current))} style={styleActionButton} text='Zaloguj się'/>
+      <ActionButton fetch={()=>dispatch(getDataFromApi(inputRef.current))} text='Zaloguj się'/>
    </Box>
    )
    }

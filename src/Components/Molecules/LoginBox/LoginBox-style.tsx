@@ -7,18 +7,16 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 width: 40vw;
-height: 60vh;
+height: 50vh;
 background: #FFFFFF;
 box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.25);
+
+@media (max-width: 768px) {
+   width: 100%;
+   grid-column: 1/3;
+    }
 `;
 
 
-export const styleActionButton = {
-margin: '2em',
-width: '13.3em',
-height: '3em',
-fontSize: '20px',
-padding: '.8em'
-};
 
 

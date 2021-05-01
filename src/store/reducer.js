@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit';
 const httpSlice = createSlice({
   name: 'datasForStudents',
   initialState: {
-     dataFromApi: []
+     dataFromApiForStudents: []
   },
   reducers: {
     loadData: (data, action) => {
-      data.dataFromApi = action.payload;
+      data.dataFromApiForStudents = action.payload;
     },
   },
 });

@@ -5,7 +5,14 @@ export const Image = styled(Illustration)`
 width: 40vw;
 height: 50vh;
 grid-column: 2/3;
-grid-row: 2/3
+grid-row: 2/3;
+align-self: center;
+justify-self: center;
+
+@media (max-width: 1023px) {
+      display: none;
+    }
+
 `;
 
 export const style = {
