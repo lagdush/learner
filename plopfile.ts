@@ -125,21 +125,22 @@ plop.setGenerator("FCV", {
        },
    ],
    actions: [
-       {
-           type: "add",
-           path: "src/Components/View/{{pascalCase name}}/index.ts",
-           templateFile: "plop-template-ts/functionalComponent.tsx.hbs",
-       },
-       {
-           type: "add",
-           path: "src/Components/View/{{pascalCase name}}/index.ts",
-           templateFile: "plop-template-ts/Component-style.tsx.hbs",
-       },
-       {
-           type: "add",
-           path: "src/Components/View/{{pascalCase name}}/index.ts",
-           templateFile: "plop-template-ts/injectable-index.ts.hbs",
-       },
+    {
+        type: "add",
+        path:"src/Components/View/{{pascalCase name}}/{{pascalCase name}}.tsx",
+        templateFile: "plop-template-ts/functionalComponent.tsx.hbs",
+    },
+    {
+        type: "add",
+        path:
+            "src/Components/View/{{pascalCase name}}/{{pascalCase name}}-style.tsx",
+        templateFile: "plop-template-ts/Component-style.tsx.hbs",
+    },
+    {
+        type: "add",
+        path: "src/Components/View/{{pascalCase name}}/index.ts",
+        templateFile: "plop-template-ts/injectable-index.ts.hbs",
+    },
    ],
 });
 

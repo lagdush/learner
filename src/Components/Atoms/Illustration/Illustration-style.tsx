@@ -12,9 +12,3 @@ grid-row: 2/3;
     }
 
 `;
-
-export const style = {
-
-};
-
-export default style;
