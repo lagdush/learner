@@ -9,23 +9,9 @@ const useStyles = makeStyles((theme) => ({
   },
   root: {
     '& > *': {
-      [theme.breakpoints.up('xs')]: {
-        textAlign: 'center',
-        width: '100%',
-        fontSize: '.7em'
-    },
-      [theme.breakpoints.up('sm')]: {
-        textAlign: 'center',
-        margin: theme.spacing(1),
-        width: '100%',
-        fontSize: '1em'
-    },
-    [theme.breakpoints.up('md')]: {
-      margin: theme.spacing(1),
-      width: '25vw',
-      fontSize: '1.1em',
-      textAlign: 'center',
-  },
+  // width: '25vw',
+  textAlign: 'center',
+  fontSize: '.5em'
     },
   },
 }));
