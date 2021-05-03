@@ -3,9 +3,5 @@
   "parserOptions": {
     "ecmaVersion": 2021
   },
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ]
+  "extends": ["prettier"]
 }

@@ -21,7 +21,7 @@ export const StyledNavLink = styled(NavLink).attrs({
   color: ${(props) => props.theme.navColor};
   border-radius: 15px;
   transition: 0.5s;
-  &:hover {
+  &:not(div:first-child):hover {
     box-shadow: ${(props) => props.theme.hoverBoxShadow};
   }
 `;
