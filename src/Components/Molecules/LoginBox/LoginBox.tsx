@@ -6,9 +6,11 @@ import ActionButton from '../../Atoms/Button/Button';
 import Input from '../../Atoms/Input';
 import { Box } from './LoginBox-style';
 
-type ContentBoxProps = {};
+type ContentBoxProps = {
+  startTransition: (arg: boolean) => void;
+};
 
-const LoginBox: React.FC<ContentBoxProps> = () => {
+const LoginBox: React.FC<ContentBoxProps> = ({ startTransition }) => {
   const dispatch = useDispatch();
   const history = useHistory();
   //@ts-ignore
@@ -18,9 +20,15 @@ const LoginBox: React.FC<ContentBoxProps> = () => {
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     inputRef.current = e.target.value;
   };
+  const transitionStarter = () => {
+    startTransition(false);
+    setTimeout(() => {
+      history.push('/student');
+    }, 1000);
+  };
 
   useEffect(() => {
-    user && history.push('/student');
+    user && transitionStarter();
   }, [user, history]);
 
   return (
