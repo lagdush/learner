@@ -1,17 +1,11 @@
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { Container } from './IllustrationStudentTemplate-style'
+import { Container } from './IllustrationStudentTemplate-style';
 
-type IllustrationStudentTemplateProps = {
-
-}
+type IllustrationStudentTemplateProps = {};
 
 const IllustrationStudentTemplate: React.FC<IllustrationStudentTemplateProps> = () => {
+  return <Container>IllustrationStudentTemplate</Container>;
+};
 
-   return (
-   <Container>IllustrationStudentTemplate</Container>
-   )
-   }
-
-
-   export default IllustrationStudentTemplate
+export default IllustrationStudentTemplate;

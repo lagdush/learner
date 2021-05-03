@@ -1,28 +1,35 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logout } from '../../../store/reducer';
 import Header from '../../Atoms/Header';
-import { Container, StyledNavLink } from './NavigationTemplate-style'
+import { Container, StyledNavLink } from './NavigationTemplate-style';
 
 interface NavigationTemplateProps {
-createNavigation: { name: string, route: string }[]
+  createNavigation: { name: string; route: string }[];
 }
 
-const NavigationTemplate: React.FC<NavigationTemplateProps> = ({createNavigation}) => {
+const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
+  createNavigation
+}) => {
+  const dispatch = useDispatch();
 
-   return (
-   <Container>
-      <StyledNavLink to='/'>
-         <Header/>
+  return (
+    <Container>
+      <StyledNavLink exact to="/">
+        <Header />
       </StyledNavLink>
-      {createNavigation.map((textes)=>{
-         return(
-            <StyledNavLink key={textes.route} to={textes.route}>
-               {textes.name}
-            </StyledNavLink>
-         )
+      {createNavigation.map((textes) => {
+        return (
+          <StyledNavLink key={textes.route} to={textes.route}>
+            {textes.name}
+          </StyledNavLink>
+        );
       })}
-   </Container>
-   )
-   }
+      <StyledNavLink exact to="/login" onClick={() => dispatch(logout())}>
+        Wyloguj się
+      </StyledNavLink>
+    </Container>
+  );
+};
 
-
-   export default NavigationTemplate
+export default NavigationTemplate;
