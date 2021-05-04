@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { Transition } from 'react-transition-group';
 // @ts-ignore
-import { TweenMax } from 'gsap/all';
-import Header from '../../Atoms/Header';
-import Illustration from '../../Atoms/Illustration';
-import LoginBox from '../../Molecules/LoginBox';
-
+import { TweenMax } from 'gsap';
 import { Container } from './LoginView-style';
+import Header from '../../Atoms/Header/Header';
+import Illustration from '../../Atoms/Illustration/Illustration';
+import LoginBox from '../../Molecules/LoginBox/LoginBox';
 
-type LoginTemplateProps = {};
 
-const LoginView: React.FC<LoginTemplateProps> = () => {
+const LoginView: React.FC = () => {
   const [isTranstion, setIsTransition] = useState(true);
 
   const hasTransition = (arg: boolean) => {

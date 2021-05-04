@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   height: 12vh;
+  padding-bottom: .2em;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -15,7 +16,7 @@ export const StyledNavLink = styled(NavLink).attrs({
   }
 })`
   padding: 0.6em;
-  font-size: 0.4em;
+  font-size: 0.3em;
   text-decoration: none;
   cursor: pointer;
   color: ${(props) => props.theme.navColor};

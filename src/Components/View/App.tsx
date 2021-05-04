@@ -3,8 +3,8 @@ import createStore from '../../store/configureStore';
 import { Provider } from 'react-redux';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../helpers/ThemeProvider/theme';
-import LoginView from './LoginView';
-import StudentView from './StudentView';
+import LoginView from './LoginView/LoginView';
+import StudentView from './StudentView/StudentView';
 
 const store = createStore();
 

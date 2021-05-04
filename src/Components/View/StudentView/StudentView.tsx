@@ -1,9 +1,12 @@
 import React from 'react';
 import { studentNavigationTexts } from '../../helpers/studentNavigationTexts/studentNavigationTexts';
 import { StudentImage } from '../../Templates/IllustrationStudentTemplate/IllustrationStudentTemplate-style';
-import NavigationTemplate from '../../Templates/NavigationTemplate';
+import NavigationTemplate from '../../Templates/NavigationTemplate/NavigationTemplate';
+
 
 import { Container, StudentContentBox } from './StudentView-style';
+
+
 
 type StudentViewProps = {};
 

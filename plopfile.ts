@@ -20,11 +20,6 @@ module.exports = (plop) => {
                    "src/Components/Atoms/{{pascalCase name}}/{{pascalCase name}}-style.tsx",
                templateFile: "plop-template-ts/Component-style.tsx.hbs",
            },
-           {
-               type: "add",
-               path: "src/Components/Atoms/{{pascalCase name}}/index.ts",
-               templateFile: "plop-template-ts/injectable-index.ts.hbs",
-           },
        ],
    });
 
@@ -51,11 +46,6 @@ module.exports = (plop) => {
                ath: "src/Components/Molecules/{{pascalCase name}}/index.ts",
                templateFile: "plop-template-ts/Component-style.tsx.hbs",
            },
-           {
-               type: "add",
-               ath: "src/Components/Molecules/{{pascalCase name}}/index.ts",
-               templateFile: "plop-template-ts/injectable-index.ts.hbs",
-           },
        ],
    });
 
@@ -78,11 +68,6 @@ module.exports = (plop) => {
               type: "add",
               path: "src/Components/Organisms/{{pascalCase name}}/index.ts",
               templateFile: "plop-template-ts/Component-style.tsx.hbs",
-          },
-          {
-              type: "add",
-              path: "src/Components/Organisms/{{pascalCase name}}/index.ts",
-              templateFile: "plop-template-ts/injectable-index.ts.hbs",
           },
       ],
   });
@@ -107,11 +92,6 @@ module.exports = (plop) => {
            path: "src/Components/Templates/{{pascalCase name}}/{{pascalCase name}}-style.tsx",
            templateFile: "plop-template-ts/Component-style.tsx.hbs",
        },
-       {
-           type: "add",
-           path: "src/Components/Templates/{{pascalCase name}}/index.ts",
-           templateFile: "plop-template-ts/injectable-index.ts.hbs",
-       },
    ],
 });
 
@@ -135,11 +115,6 @@ plop.setGenerator("FCV", {
         path:
             "src/Components/View/{{pascalCase name}}/{{pascalCase name}}-style.tsx",
         templateFile: "plop-template-ts/Component-style.tsx.hbs",
-    },
-    {
-        type: "add",
-        path: "src/Components/View/{{pascalCase name}}/index.ts",
-        templateFile: "plop-template-ts/injectable-index.ts.hbs",
     },
    ],
 });

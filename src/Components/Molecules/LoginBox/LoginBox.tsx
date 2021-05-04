@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { getDataFromApi } from '../../../store/actionsToApi';
 import ActionButton from '../../Atoms/Button/Button';
-import Input from '../../Atoms/Input';
+import Input from '../../Atoms/Input/Input';
+
 import { Box } from './LoginBox-style';
 
 type ContentBoxProps = {

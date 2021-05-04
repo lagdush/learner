@@ -1,7 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../store/reducer';
-import Header from '../../Atoms/Header';
+import Header from '../../Atoms/Header/Header';
+
 import { Container, StyledNavLink } from './NavigationTemplate-style';
 
 interface NavigationTemplateProps {
