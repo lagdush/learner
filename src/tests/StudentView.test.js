@@ -24,9 +24,15 @@ const mockRender = (
   return render(ui, { wrapper: Wrapper, ...renderOptions });
 };
 
-describe('LoginView tests', () => {
+describe('StudentView tests', () => {
   it('test is component render properly', () => {
-    mockRender(<StudentView />, { dataFromApiStudent: { user: [] } });
+    mockRender(<StudentView />, {
+      dataFromApiStudent: {
+        user: {
+          posts: [{ title: 'title', content: 'content', photo: 'photo' }]
+        }
+      }
+    });
     studentNavigationTexts.map((text) => {
       let navText = screen.getByText(text.name);
       expect(navText).toBeInTheDocument();

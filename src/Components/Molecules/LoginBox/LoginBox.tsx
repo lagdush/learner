@@ -6,6 +6,7 @@ import ActionButton from '../../Atoms/Button/Button';
 import Input from '../../Atoms/Input/Input';
 
 import { Box } from './LoginBox-style';
+import { reduxState } from './models';
 
 type ContentBoxProps = {
   startTransition: (arg: boolean) => void;
@@ -14,8 +15,10 @@ type ContentBoxProps = {
 const LoginBox: React.FC<ContentBoxProps> = ({ startTransition }) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  //@ts-ignore
-  const { user } = useSelector((state) => state.dataFromApiForStudents);
+
+  const { user } = useSelector(
+    (state: reduxState) => state.dataFromApiForStudents
+  );
   const inputRef = useRef<string>();
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
