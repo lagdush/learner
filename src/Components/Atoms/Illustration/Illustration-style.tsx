@@ -1,12 +1,13 @@
 import styled from 'styled-components';
-import { ReactComponent as Illustration } from '../../../assets/illustrations/loginPage/Groupreading_book_on_chair.svg';
+import { ReactComponent as Illustration } from '../../../assets/illustrations/loginPage/Saly-38robot.svg';
 
 export const Image = styled(Illustration)`
-  width: 40vw;
-  height: 50vh;
-  grid-column: 2/3;
-  grid-row: 2/3;
-
+position: relative;
+  width: 50vw;
+  height: 90vh;
+  grid-column: 3/5;
+  grid-row: 1/-1;
+  place-self: center;
   @media (max-width: 1024px) {
     display: none;
   }

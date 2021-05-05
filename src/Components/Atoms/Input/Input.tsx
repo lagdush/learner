@@ -5,12 +5,16 @@ import TextField from '@material-ui/core/TextField';
 
 const useStyles = makeStyles((theme) => ({
   input: {
-    fontWeight: 300
+    fontWeight: 300,
+    border: 'none',
+    textAlign: 'center'
   },
   root: {
     '& > *': {
       textAlign: 'center',
-      fontSize: '.5em'
+      fontSize: '.5em',
+      backgroundColor: 'white',
+      padding: '0 20px',
     }
   }
 }));

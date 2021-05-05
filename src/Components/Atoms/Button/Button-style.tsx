@@ -5,10 +5,10 @@ export const Button = styled.button`
   width: 50%;
   padding: 0.4em;
   text-align: center;
-  background: ${(props) => props.theme.mainColor};
-  box-shadow: 9px 4px 17px 4px rgba(0, 0, 0, 0.21);
+  background: ${(props) => props.theme.navColor};
+  box-shadow: ${(props) => props.theme.boxShadow};
   border: none;
-  color: #fff;
+  color: ${(props) => props.theme.fontColor};
   font-size: 0.5em;
   font-family: Merriweather Sans;
   cursor: pointer;

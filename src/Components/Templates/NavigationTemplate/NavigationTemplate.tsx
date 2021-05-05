@@ -1,8 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
-import { logout } from '../../../store/reducer';
 import Header from '../../Atoms/Header/Header';
-
 import { Container, StyledNavLink } from './NavigationTemplate-style';
 
 interface NavigationTemplateProps {
@@ -12,8 +9,6 @@ interface NavigationTemplateProps {
 const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
   createNavigation
 }) => {
-  const dispatch = useDispatch();
-
   return (
     <Container>
       <StyledNavLink exact to="/">
@@ -26,9 +21,6 @@ const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
           </StyledNavLink>
         );
       })}
-      <StyledNavLink exact to="/login" onClick={() => dispatch(logout())}>
-        Wyloguj się
-      </StyledNavLink>
     </Container>
   );
 };

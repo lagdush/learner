@@ -6,7 +6,7 @@ import { Container } from './LoginView-style';
 import Header from '../../Atoms/Header/Header';
 import Illustration from '../../Atoms/Illustration/Illustration';
 import LoginBox from '../../Molecules/LoginBox/LoginBox';
-
+import { HeaderGridPlacement } from './LoginView-style';
 
 const LoginView: React.FC = () => {
   const [isTranstion, setIsTransition] = useState(true);
@@ -42,9 +42,10 @@ const LoginView: React.FC = () => {
       }
     >
       <Container>
-        <Header />
         <Illustration />
-        <LoginBox startTransition={hasTransition} />
+        <HeaderGridPlacement>
+          <Header /> <LoginBox startTransition={hasTransition} />
+        </HeaderGridPlacement>
       </Container>
     </Transition>
   );

@@ -10,20 +10,20 @@ const store = createStore();
 
 function App() {
   return (
-    <Provider store={store}>
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Switch>
-            <Route path="/login" exact>
-              <LoginView />
-            </Route>
-            <Route>
-              <StudentView />
-            </Route>
-          </Switch>
-        </Router>
-      </ThemeProvider>
-    </Provider>
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Router>
+            <Switch>
+              <Route path="/login" exact>
+                <LoginView />
+              </Route>
+              <Route>
+                <StudentView />
+              </Route>
+            </Switch>
+          </Router>
+        </ThemeProvider>
+      </Provider>
   );
 }
 

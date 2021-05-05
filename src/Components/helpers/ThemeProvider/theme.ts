@@ -1,8 +1,11 @@
 export const theme = {
-  mainColor: '#30B0F8',
-  secondaryColor: '#FC9E1E',
-  navColor: '#303030',
+  mainColor: '#edf5e1',
+  secondaryColor: '#edf5e1',
+  navColor: '#edf5e1',
+  fontColor: '#05386b',
   hoverBoxShadow: '1px 1px 10px rgba(85, 97, 103, 0.335)',
-  boxShadow: '5px 5px 30px rgba(0, 0, 0, 0.25)',
-  borderRadius: '25px'
+  boxShadow: '9px 4px 17px 4px rgba(0, 0, 0, 0.459);',
+  borderRadius: '25px',
+  backgroundColor: '#05386b',
+  secondaryBackgroundColor: 'linear-gradient(90deg, #5cdb95 40%, #8ee4af 80%)'
 };
