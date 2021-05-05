@@ -32,6 +32,7 @@ export const ContentInnerGrid = styled.div`
   gap: 10px;
   grid-auto-flow: dense;
   align-items: center;
+  background-color: ${(props) => props.theme.mainColor};
 `;
 
 export const StudentContentBox = styled.div`

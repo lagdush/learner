@@ -7,5 +7,5 @@ export const theme = {
   boxShadow: '9px 4px 17px 4px rgba(0, 0, 0, 0.459);',
   borderRadius: '25px',
   backgroundColor: '#05386b',
-  secondaryBackgroundColor: 'linear-gradient(90deg, #5cdb95 40%, #8ee4af 80%)'
+  secondaryBackgroundColor: 'linear-gradient(90deg, #05386b 20%, #0A6CCF 60%)'
 };
