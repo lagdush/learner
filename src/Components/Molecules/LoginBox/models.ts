@@ -1,4 +1,4 @@
-type fetchedPosts = {
+export type fetchedPosts = {
   _id: string;
   title: string;
   content: string;
