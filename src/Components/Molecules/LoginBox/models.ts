@@ -38,6 +38,8 @@ export default interface IFetchedData {
 }
 
 export interface reduxState{
-  dataFromApiForStudents: IFetchedData
+  dataFromApiForStudents: IFetchedData,
+  loading: boolean,
+  error: string
 }
 

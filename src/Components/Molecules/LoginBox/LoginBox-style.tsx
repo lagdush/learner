@@ -7,7 +7,7 @@ export const Box = styled.div`
   align-items: center;
   width: 30vw;
   height: 50vh;
-  background: #05386b;
+  background: ${(props) => props.theme.backgroundColor};
   box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 25px;
   margin-top: 2rem;
@@ -17,3 +17,11 @@ export const Box = styled.div`
     justify-self: center;
   }
 `;
+
+export const LoaderBox = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+`;
+

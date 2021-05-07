@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-
-
 export const Post = styled.img`
   width: 100%;
   height: 100%;
@@ -9,6 +7,7 @@ export const Post = styled.img`
   border: 10px solid black;
   filter: grayscale(100%);
   transition: 0.3s;
+  cursor: pointer;
   &:nth-child(odd) {
     grid-row: span 2;
     grid-column: span 2;

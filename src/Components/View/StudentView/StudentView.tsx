@@ -12,6 +12,7 @@ const StudentView: React.FC<StudentViewProps> = () => {
     <Container>
       <SecondaryNavigation />
       <NavigationTemplate createNavigation={studentNavigationTexts} />
+      {/* tutaj nawigacja na pozostałe route:id */}
       <ContentBoxStudent />
     </Container>
   );

@@ -7,6 +7,7 @@ import Input from '../../Atoms/Input/Input';
 
 import { Box } from './LoginBox-style';
 import { reduxState } from './models';
+import Loader from './Loader';
 
 type ContentBoxProps = {
   startTransition: (arg: boolean) => void;
@@ -19,6 +20,8 @@ const LoginBox: React.FC<ContentBoxProps> = ({ startTransition }) => {
   const { user } = useSelector(
     (state: reduxState) => state.dataFromApiForStudents
   );
+  const { loading } = useSelector((state: reduxState) => state);
+
   const inputRef = useRef<string>();
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,7 +38,9 @@ const LoginBox: React.FC<ContentBoxProps> = ({ startTransition }) => {
     user && transitionStarter();
   }, [user, history]);
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <Box>
       <Input onChange={inputHandler} label="Podaj swój kod dostępu" />
       <ActionButton
