@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Redirect, useLocation } from 'react-router';
+import { useSpring } from 'react-spring';
 import useModal from '../../../hooks/useModal';
 import { fetchedPosts, reduxState } from '../../Molecules/LoginBox/models';
 import Modal from '../Modal/Modal';
@@ -22,6 +23,10 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
   );
   const [title, setTitle] = useState<string>();
   const { pathname } = useLocation();
+  const style = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 }
+  });
 
   useEffect(() => {
     switch (pathname) {
@@ -51,7 +56,11 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
       <ContentInnerGrid>
         {user.posts.map((post) => (
           <Wrapper key={post._id}>
-            <Post src={post.photo} onClick={() => contentCreator(post._id)} />
+            <Post
+              style={style}
+              src={post.photo}
+              onClick={() => contentCreator(post._id)}
+            />
             <PostTitle>{post.title}</PostTitle>
           </Wrapper>
         ))}

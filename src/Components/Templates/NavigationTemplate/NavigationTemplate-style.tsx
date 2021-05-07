@@ -27,7 +27,7 @@ export const ScndNavigation = styled.div`
 export const StyledNavLink = styled(NavLink).attrs({
   activeStyle: {
     color: '#F2EA7E',
-    boxShadow: '9px 4px 17px 4px rgba(0, 0, 0, 0.459);'
+    boxShadow: '9px 4px 17px 4px rgba(0, 0, 0, 0.459)'
   }
 })`
   padding: 0.6em;

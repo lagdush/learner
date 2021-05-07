@@ -8,7 +8,9 @@ type ButtonProps = {
 };
 
 const ActionButton: React.FC<ButtonProps> = ({ text, fetch }) => {
-  return <Button onClick={fetch}>{text}</Button>;
+  return (
+      <Button onClick={fetch}>{text}</Button>
+  );
 };
 
 export default ActionButton;

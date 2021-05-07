@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import {animated } from 'react-spring';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -26,11 +27,10 @@ export const PostTitle = styled.p`
   text-shadow: ${(props) => props.theme.backgroundColor} 2px 2px 2px;
 `;
 
-export const Post = styled.img`
+export const Post = styled(animated.img)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border: 10px solid black;
   filter: grayscale(100%);
   transition: 0.3s;
   cursor: pointer;
@@ -41,6 +41,7 @@ export const Post = styled.img`
 `;
 
 export const ContentInnerGrid = styled.div`
+  margin-top: 30px;
   width: 100%;
   height: 100%;
   display: grid;
@@ -48,13 +49,15 @@ export const ContentInnerGrid = styled.div`
   grid-template-rows: repeat(auto-fit, minmax(200px, 1fr));
   gap: 10px;
   grid-auto-flow: dense;
-  align-items: center;
 `;
 
 export const StudentContentBox = styled.div`
   width: 90%;
   grid-column: 2/3;
   justify-self: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   /* @media (max-width: 1024px) {
     width: 70vw;
     grid-column: 1/3;

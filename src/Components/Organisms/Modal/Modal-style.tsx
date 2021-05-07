@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-
-export const ModalContainer = styled.div`
+import { animated } from 'react-spring';
+export const ModalContainer = styled(animated.div)`
   position: fixed;
   top: 50%;
   left: 50%;
