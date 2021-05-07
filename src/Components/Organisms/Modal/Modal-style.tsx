@@ -9,7 +9,7 @@ export const ModalContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: justify;
-  transform: translate(-50%, -50%);
+  transform: translate(-40%, -50%);
   /* width: 100vw; */
   /* height: 100vh; */
   min-width: 300px;

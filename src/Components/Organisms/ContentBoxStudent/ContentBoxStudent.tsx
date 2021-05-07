@@ -7,7 +7,9 @@ import Modal from '../Modal/Modal';
 import {
   ContentInnerGrid,
   Post,
-  StudentContentBox
+  PostTitle,
+  StudentContentBox,
+  Wrapper
 } from './ContentBoxStudent-style';
 
 type ContentBoxStudentProps = {};
@@ -48,11 +50,10 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
       <h3>{title}</h3>
       <ContentInnerGrid>
         {user.posts.map((post) => (
-          <Post
-            key={post._id}
-            src={post.photo}
-            onClick={() => contentCreator(post._id)}
-          />
+          <Wrapper key={post._id}>
+            <Post src={post.photo} onClick={() => contentCreator(post._id)} />
+            <PostTitle>{post.title}</PostTitle>
+          </Wrapper>
         ))}
       </ContentInnerGrid>
       {isOpen ? (
