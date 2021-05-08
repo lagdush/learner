@@ -16,7 +16,7 @@ export const ScndNavigation = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-bottom: 3%;
-  padding-right: 2%;
+  padding: 20px;
   align-items: center;
   grid-column: 1/3;
   background: ${(props) => props.theme.secondaryBackgroundColor};
@@ -26,8 +26,7 @@ export const ScndNavigation = styled.div`
 
 export const StyledNavLink = styled(NavLink).attrs({
   activeStyle: {
-    color: '#F2EA7E',
-    boxShadow: '9px 4px 17px 4px rgba(0, 0, 0, 0.459)'
+    color: '#F2EA7E'
   }
 })`
   padding: 0.6em;
@@ -35,9 +34,49 @@ export const StyledNavLink = styled(NavLink).attrs({
   text-decoration: none;
   cursor: pointer;
   color: ${(props) => props.theme.navColor};
-  border-radius: 15px;
-  transition: 0.5s;
-  &:not(a:first-child):hover {
-    box-shadow: ${(props) => props.theme.boxShadow};
+  background-color: inherit;
+`;
+
+export const StyledNavLinkHover = styled(StyledNavLink).attrs({
+  activeStyle: {
+    color: '#f2ea7e',
+    textShadow: 'black 1px 1px 1px'
+  }
+})`
+  position: relative;
+  transition: 0.3s ease-in-out;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #edf5e1;
+    transition: 0.3s ease-in;
+    z-index: -1;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    background-color: #0a6ccf;
+    transition: 0.3s ease-in;
+    z-index: -1;
+  }
+  &:hover {
+    background-color: transparent;
+    color: ${(props) => props.theme.fontColor};
+    &:after {
+      top: -10%;
+      left: -5%;
+    }
+    &:before {
+      bottom: -10%;
+      right: -5%;
+    }
   }
 `;

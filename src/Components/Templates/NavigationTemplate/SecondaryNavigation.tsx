@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { logout } from '../../../store/reducer';
 import { studentNavigationTextsTopNav } from '../../helpers/studentNavigationTexts/studentNavigationTexts';
-import { ScndNavigation, StyledNavLink } from './NavigationTemplate-style';
+import { ScndNavigation, StyledNavLinkHover } from './NavigationTemplate-style';
 
 const SecondaryNavigation = () => {
   const dispatch = useDispatch();
@@ -9,22 +9,22 @@ const SecondaryNavigation = () => {
     <ScndNavigation>
       {studentNavigationTextsTopNav.map((nav) => {
         return (
-          <StyledNavLink
+          <StyledNavLinkHover
             key={nav.route}
             exact
             to={nav.route}
           >
             {nav.name}
-          </StyledNavLink>
+          </StyledNavLinkHover>
         );
       })}
-      <StyledNavLink
+      <StyledNavLinkHover
         exact
         to="/login"
         onClick={() => dispatch(logout())}
       >
         Wyloguj się
-      </StyledNavLink>
+      </StyledNavLinkHover>
     </ScndNavigation>
   );
 };

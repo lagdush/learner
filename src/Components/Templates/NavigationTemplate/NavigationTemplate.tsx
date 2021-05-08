@@ -1,6 +1,10 @@
 import React from 'react';
 import Header from '../../Atoms/Header/Header';
-import { Container, StyledNavLink } from './NavigationTemplate-style';
+import {
+  Container,
+  StyledNavLink,
+  StyledNavLinkHover
+} from './NavigationTemplate-style';
 
 interface NavigationTemplateProps {
   createNavigation: { name: string; route: string }[];
@@ -16,9 +20,9 @@ const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
       </StyledNavLink>
       {createNavigation.map((textes) => {
         return (
-          <StyledNavLink key={textes.route} to={textes.route}>
+          <StyledNavLinkHover key={textes.route} to={textes.route}>
             {textes.name}
-          </StyledNavLink>
+          </StyledNavLinkHover>
         );
       })}
     </Container>
