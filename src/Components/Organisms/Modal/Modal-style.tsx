@@ -21,4 +21,10 @@ export const ModalContainer = styled(animated.div)`
   box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: ${(props) => props.theme.borderRadius};
   border: 10px solid black;
+  @media screen and (max-width: 1024px) {
+    max-width: 100vw;
+    max-height: 100vh;
+    border-radius: 0px;
+    border: 2px solid black;
+  }
 `;

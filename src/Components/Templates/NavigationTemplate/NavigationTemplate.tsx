@@ -16,6 +16,7 @@ const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
   createNavigation
 }) => {
   const dispatch = useDispatch();
+  //napisz hooka na hamburgera
   return (
     <Container>
       <StyledNavLink exact to="/">

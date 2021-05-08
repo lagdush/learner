@@ -10,19 +10,12 @@ export const Container = styled.div`
   align-items: center;
   grid-column: 1/2;
   background-color: ${(props) => props.theme.backgroundColor};
+  //tymczasowo wyłączone, zrób hooka na przełączanie się między nawigacja a hambrugerem
+  @media screen and (max-width: 1024px) {
+    display:none
+  }
 `;
 
-export const ScndNavigation = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  margin-bottom: 3%;
-  padding: 20px;
-  align-items: center;
-  grid-column: 1/3;
-  background: ${(props) => props.theme.secondaryBackgroundColor};
-  font-weight: 500;
-  font-size: 0.8rem;
-`;
 
 export const StyledNavLink = styled(NavLink).attrs({
   activeStyle: {
