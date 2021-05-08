@@ -57,6 +57,9 @@ export const Post = styled(animated.img)`
   &:hover {
     filter: grayscale(0);
   }
+  @media screen and (max-width: 1024px) {
+    filter: grayscale(0);
+  }
 `;
 
 export const ContentInnerGrid = styled.div`
