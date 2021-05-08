@@ -4,8 +4,8 @@ import { loadData, showLoader, hideLoader, catchErrors } from './reducer';
 export const getDataFromApi = (id) => {
   return async function (dispatch) {
     try {
-      dispatch({ type: showLoader.type });
       const rawData = await fetch(`${url}users/content/${id}`);
+      dispatch({ type: showLoader.type });
       const data = await rawData.json();
       dispatch({ type: loadData.type, payload: data });
       dispatch({ type: hideLoader.type });

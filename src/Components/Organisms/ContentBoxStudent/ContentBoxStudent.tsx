@@ -4,7 +4,7 @@ import { Redirect, useLocation } from 'react-router';
 import { useSpring } from 'react-spring';
 import useModal from '../../../hooks/useModal';
 import { fetchedPosts, reduxState } from '../../Molecules/LoginBox/models';
-import Modal from '../Modal/Modal';
+import ModalPostContent from '../ModalPostContent/ModalPostContent';
 import {
   ContentInnerGrid,
   Post,
@@ -66,7 +66,7 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
         ))}
       </ContentInnerGrid>
       {isOpen ? (
-        <Modal rawContent={modalContent!} handleClose={handleCloseModal} />
+        <ModalPostContent rawContent={modalContent!} handleClose={handleCloseModal} />
       ) : null}
     </StudentContentBox>
   ) : (
