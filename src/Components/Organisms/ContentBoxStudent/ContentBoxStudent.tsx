@@ -28,6 +28,11 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
     from: { opacity: 0 }
   });
 
+  const titleStyle = useSpring({
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+  });
+
   useEffect(() => {
     switch (pathname) {
       case '/student/knowledge':
@@ -61,12 +66,15 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
               src={post.photo}
               onClick={() => contentCreator(post._id)}
             />
-            <PostTitle>{post.title}</PostTitle>
+            <PostTitle style={titleStyle}>{post.title}</PostTitle>
           </Wrapper>
         ))}
       </ContentInnerGrid>
       {isOpen ? (
-        <ModalPostContent rawContent={modalContent!} handleClose={handleCloseModal} />
+        <ModalPostContent
+          rawContent={modalContent!}
+          handleClose={handleCloseModal}
+        />
       ) : null}
     </StudentContentBox>
   ) : (

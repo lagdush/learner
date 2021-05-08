@@ -12,8 +12,4 @@ export const Button = styled(animated.button)`
   font-size: 0.5em;
   font-family: Merriweather Sans;
   cursor: pointer;
-  /* transition: 0.3s linear;
-  &:hover {
-    border-radius: 26.5px;
-  } */
 `;

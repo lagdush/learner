@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {animated } from 'react-spring';
+import { animated } from 'react-spring';
 
 export const Wrapper = styled.div`
   position: relative;
@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
     grid-row: span 3;
   }
 `;
-export const PostTitle = styled.p`
+export const PostTitle = styled(animated.p)`
   position: absolute;
   top: 10%;
   left: 50%;
@@ -28,13 +28,13 @@ export const PostTitle = styled.p`
 `;
 
 export const Post = styled(animated.img)`
+  position: relative;
   width: 100%;
   height: 100%;
   object-fit: cover;
   filter: grayscale(100%);
   transition: 0.3s;
   cursor: pointer;
-
   &:hover {
     filter: grayscale(0);
   }
@@ -52,6 +52,7 @@ export const ContentInnerGrid = styled.div`
 `;
 
 export const StudentContentBox = styled.div`
+  margin-top: 50px;
   width: 90%;
   grid-column: 2/3;
   justify-self: center;

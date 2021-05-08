@@ -11,10 +11,15 @@ export const Box = styled.div`
   box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 25px;
   margin-top: 2rem;
-  @media (max-width: 1024px) {
+  @media screen and (max-width: 768px) and (orientation: portrait) {
     width: 70vw;
-    grid-column: 1/3;
+    height: 30vh;
+    grid-column: 1/4;
     justify-self: center;
+  }
+  @media screen and (max-width: 768px) and (orientation: landscape) {
+    height: 40vh;
+    width: 70vw;
   }
 `;
 

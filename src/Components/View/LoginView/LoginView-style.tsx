@@ -9,6 +9,9 @@ export const Container = styled.div`
   justify-content: center;
   align-content: center;
   background-color: ${(props) => props.theme.backgroundColor};
+  @media screen and (max-width: 768px) {
+    grid-template-columns: none;
+  }
 `;
 export const HeaderGridPlacement = styled.div`
   grid-column: 1/3;
