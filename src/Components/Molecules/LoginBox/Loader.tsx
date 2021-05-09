@@ -1,5 +1,4 @@
 import { CircularProgress } from '@material-ui/core';
-import React from 'react';
 import { LoaderBox } from './LoginBox-style';
 
 const Loader = () => {

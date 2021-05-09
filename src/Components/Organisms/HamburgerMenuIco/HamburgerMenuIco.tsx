@@ -3,13 +3,20 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import { Container } from './HamburgerMenuIco-style';
 import NavigationTemplate from '../../Templates/NavigationTemplate/NavigationTemplate';
 import { studentNavigationTexts } from '../../helpers/studentNavigationTexts/studentNavigationTexts';
+import { useSpring } from '@react-spring/core';
 
 type HamburgerMenuIcoProps = {};
 
 const HamburgerMenuIco: React.FC<HamburgerMenuIcoProps> = () => {
   const [menu, showMenu] = useState(false);
+
+  const menuStyles = useSpring({
+    transform: menu ? `translateY(0)` : `translateY(-100%)`,
+    opacity: menu ? 1 : 0
+  });
+
   const handleClick = () => {
-    showMenu((prev: boolean) => !prev);
+    showMenu(!menu);
   };
 
   const handleClose = () => {
@@ -26,6 +33,7 @@ const HamburgerMenuIco: React.FC<HamburgerMenuIcoProps> = () => {
         <NavigationTemplate
           createNavigation={studentNavigationTexts}
           showMenu={handleClose}
+          style={menuStyles}
         />
       )}
     </Container>

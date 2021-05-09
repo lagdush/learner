@@ -15,7 +15,7 @@ export const Container = styled(animated.div)`
     position: absolute;
     top: 0;
     left: 0;
-    height: auto;
+    /* height: auto; */
     min-height: 100%;
     width: 100%;
     z-index: 1;
@@ -86,4 +86,5 @@ export const StyledNavLinkHover = styled(StyledNavLink).attrs({
     padding: 0.6em;
     font-size: 1em;
   }
+
 `;

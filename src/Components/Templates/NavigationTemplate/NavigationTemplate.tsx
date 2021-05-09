@@ -7,21 +7,23 @@ import {
   StyledNavLink,
   StyledNavLinkHover
 } from './NavigationTemplate-style';
-
+import { SpringValue } from 'react-spring';
 
 interface NavigationTemplateProps {
   createNavigation: { name: string; route: string }[];
-  showMenu?: ()=>void;
+  showMenu?: () => void;
+  style?: any;
 }
 
 const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
   createNavigation,
-  showMenu
+  showMenu,
+  style
 }) => {
   const dispatch = useDispatch();
 
   return (
-    <Container>
+    <Container style={style}>
       <StyledNavLink exact to="/">
         <Header />
       </StyledNavLink>
