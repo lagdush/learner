@@ -30,7 +30,7 @@ const LoginBox: React.FC<ContentBoxProps> = ({ startTransition }) => {
   const transitionStarter = () => {
     startTransition(false);
     setTimeout(() => {
-      history.push('/student/news');
+      history.push('/student/');
     }, 1000);
   };
 

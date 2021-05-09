@@ -10,6 +10,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../helpers/ThemeProvider/theme';
 import LoginView from './LoginView/LoginView';
 import StudentView from './StudentView/StudentView';
+import ModalPostContent from '../Organisms/ModalPostContent/ModalPostContent';
 const store = createStore();
 
 function App() {
@@ -26,7 +27,10 @@ function App() {
             <Route exact path="/">
               <Redirect to="student/" />
             </Route>
-            <Route>
+            <Route path="/student/" exact>
+              <StudentView />
+            </Route>
+            <Route path="/student/:id" exact>
               <StudentView />
             </Route>
           </Switch>

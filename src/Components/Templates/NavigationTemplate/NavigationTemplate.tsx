@@ -12,7 +12,10 @@ import { SpringValue } from 'react-spring';
 interface NavigationTemplateProps {
   createNavigation: { name: string; route: string }[];
   showMenu?: () => void;
-  style?: any;
+  style?: {
+    opacity: SpringValue<number>;
+    transform: SpringValue<string>;
+  };
 }
 
 const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
