@@ -4,7 +4,7 @@ import { studentNavigationTexts } from '../../helpers/studentNavigationTexts/stu
 import ContentBoxStudent from '../../Organisms/ContentBoxStudent/ContentBoxStudent';
 import NavigationTemplate from '../../Templates/NavigationTemplate/NavigationTemplate';
 import { Container } from './StudentView-style';
-import HamburgerMenuIco from '../../Atoms/HamburgerMenuIco/HamburgerMenuIco';
+import HamburgerMenuIco from '../../Organisms/HamburgerMenuIco/HamburgerMenuIco';
 
 type StudentViewProps = {};
 

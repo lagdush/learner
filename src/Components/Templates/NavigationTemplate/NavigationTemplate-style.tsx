@@ -1,7 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { animated } from 'react-spring';
 
-export const Container = styled.div`
+export const Container = styled(animated.div)`
   position: fixed;
   height: 100vh;
   display: flex;
@@ -10,12 +11,17 @@ export const Container = styled.div`
   align-items: center;
   grid-column: 1/2;
   background-color: ${(props) => props.theme.backgroundColor};
-  //tymczasowo wyłączone, zrób hooka na przełączanie się między nawigacja a hambrugerem
-  @media screen and (max-width: 1024px) {
-    display:none
+  @media (max-width: 1024px) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: auto;
+    min-height: 100%;
+    width: 100%;
+    z-index: 1;
+    border: 2px solid black;
   }
 `;
-
 
 export const StyledNavLink = styled(NavLink).attrs({
   activeStyle: {
@@ -23,11 +29,15 @@ export const StyledNavLink = styled(NavLink).attrs({
   }
 })`
   padding: 0.6em;
-  font-size: 0.5em;
+  font-size: 0.5rem;
   text-decoration: none;
   cursor: pointer;
   color: ${(props) => props.theme.navColor};
   background-color: inherit;
+  @media (max-width: 1024px) {
+    padding: 0.6em;
+    font-size: 1em;
+  }
 `;
 
 export const StyledNavLinkHover = styled(StyledNavLink).attrs({
@@ -71,5 +81,9 @@ export const StyledNavLinkHover = styled(StyledNavLink).attrs({
       bottom: -10%;
       right: -5%;
     }
+  }
+  @media (max-width: 1024px) {
+    padding: 0.6em;
+    font-size: 1em;
   }
 `;

@@ -8,15 +8,18 @@ import {
   StyledNavLinkHover
 } from './NavigationTemplate-style';
 
+
 interface NavigationTemplateProps {
   createNavigation: { name: string; route: string }[];
+  showMenu?: ()=>void;
 }
 
 const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
-  createNavigation
+  createNavigation,
+  showMenu
 }) => {
   const dispatch = useDispatch();
-  //napisz hooka na hamburgera
+
   return (
     <Container>
       <StyledNavLink exact to="/">
@@ -24,7 +27,11 @@ const NavigationTemplate: React.FC<NavigationTemplateProps> = ({
       </StyledNavLink>
       {createNavigation.map((textes) => {
         return (
-          <StyledNavLinkHover key={textes.route} to={textes.route}>
+          <StyledNavLinkHover
+            onClick={showMenu}
+            key={textes.route}
+            to={textes.route}
+          >
             {textes.name}
           </StyledNavLinkHover>
         );
