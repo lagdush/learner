@@ -33,7 +33,8 @@ export default interface IFetchedData {
     posts: fetchedPosts[];
     videos: fetchedVideos[];
     quizzes: fetchedQuizzes[];
-    _id: string
+    _id: string;
+    email: string;
   };
 }
 
