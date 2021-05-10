@@ -1,6 +1,7 @@
+import { animated } from '@react-spring/web';
 import styled from 'styled-components';
 
-export const GridContainer = styled.div`
+export const GridContainer = styled(animated.div)`
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: auto 1fr;

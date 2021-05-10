@@ -10,7 +10,7 @@ const StudentQuestion: React.FC<StudentQuestionProps> = () => {
   return (
     <StudentContentBox>
       <LocationHeader />
-   <StudentForm />
+      <StudentForm />
     </StudentContentBox>
   );
 };

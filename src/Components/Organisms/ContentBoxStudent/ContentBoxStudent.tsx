@@ -28,13 +28,6 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
     from: { opacity: 0 }
   });
 
-  const titleStyle = useSpring({
-    to: { opacity: 1 },
-    from: { opacity: 0 },
-  });
-
-
-
   const contentCreator = (id: string) => {
     handleOpenModal();
     const index = user.posts.findIndex((el) => el._id === id);
@@ -52,7 +45,7 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
               src={post.photo}
               onClick={() => contentCreator(post._id)}
             />
-            <PostTitle style={titleStyle}>{post.title}</PostTitle>
+            <PostTitle style={style}>{post.title}</PostTitle>
           </Wrapper>
         ))}
       </ContentInnerGrid>
