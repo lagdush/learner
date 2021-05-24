@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useSpring } from 'react-spring';
 import { FormImage } from '../../Atoms/Illustration/Illustration-style';
@@ -31,11 +31,10 @@ const StudentForm: React.FC<StudentFormProps> = () => {
   });
 
   const style = useSpring({
-    to: { opacity: 1, transform: 'translateX(1)' },
-    from: { opacity: 0, transform: 'scale(0)' },
-    config: { duration: 500 },
+    to: { opacity: 1 },
+    from: { opacity: 0 },
+    config: { duration: 500 }
   });
-
 
   const formHandler = (e: any) => {
     e.preventDefault();

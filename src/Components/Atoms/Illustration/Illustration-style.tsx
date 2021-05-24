@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { ReactComponent as Illustration } from '../../../assets/illustrations/loginPage/Saly-38robot.svg';
 
 import { ReactComponent as FormImg } from '../../../assets/illustrations/loginPage/Saly-1rocket.svg';
-import { animated } from 'react-spring';
 
 export const Image = styled(Illustration)`
   position: relative;

@@ -5,7 +5,7 @@ import ContentBoxStudent from '../../Organisms/ContentBoxStudent/ContentBoxStude
 import NavigationTemplate from '../../Templates/NavigationTemplate/NavigationTemplate';
 import { Container } from './StudentView-style';
 import HamburgerMenuIco from '../../Organisms/HamburgerMenuIco/HamburgerMenuIco';
-import { Route, Switch } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import StudentQuestion from '../../Organisms/StudentQuestion/StudentQuestion';
 
 type StudentViewProps = {

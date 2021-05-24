@@ -44,7 +44,8 @@ const LoginView: React.FC = () => {
       <Container>
         <Illustration />
         <HeaderGridPlacement>
-          <Header /> <LoginBox startTransition={hasTransition} />
+          <Header />
+          <LoginBox startTransition={hasTransition} />
         </HeaderGridPlacement>
       </Container>
     </Transition>
