@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSpring } from 'react-spring';
 import { Button } from '../../Atoms/Button/Button-style';
-import { fetchedPosts } from '../../Molecules/LoginBox/models';
+import { fetchedPosts } from '../../../models/models';
 import Modal from '../Modal/Modal';
 import {
   ModalHeader,

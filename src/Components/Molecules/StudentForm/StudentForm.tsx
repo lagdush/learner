@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useSpring } from 'react-spring';
 import { FormImage } from '../../Atoms/Illustration/Illustration-style';
-import { reduxState } from '../../Molecules/LoginBox/models';
+import { reduxState } from '../../../models/models';
 import {
   FormContainer,
   StyledInput,

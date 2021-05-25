@@ -51,11 +51,10 @@ export const Post = styled(animated.img)`
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: grayscale(100%);
-  transition: 0.3s;
+  transition: 0.8s;
   cursor: pointer;
   &:hover {
-    filter: grayscale(0);
+    box-shadow: ${props=>props.theme.boxShadow};
   }
   @media screen and (max-width: 1024px) {
     filter: grayscale(0);

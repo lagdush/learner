@@ -8,7 +8,7 @@ export const Container = styled.div`
   grid-template-rows: repeat(4, minmax(20%, 1fr));
   justify-content: center;
   align-content: center;
-  background-color: ${(props) => props.theme.backgroundColor};
+  background: ${(props) => props.theme.backgroundGradient};
   @media screen and (max-width: 768px) {
     grid-template-columns: none;
   }

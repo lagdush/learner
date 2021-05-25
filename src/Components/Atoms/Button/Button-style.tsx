@@ -5,7 +5,6 @@ export const Button = styled(animated.button)`
   width: 50%;
   padding: 0.5em;
   text-align: center;
-  background: ${(props) => props.theme.navColor};
   box-shadow: ${(props) => props.theme.boxShadow};
   border: none;
   color: ${(props) => props.theme.fontColor};

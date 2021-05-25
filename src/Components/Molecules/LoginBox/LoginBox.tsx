@@ -6,7 +6,7 @@ import ActionButton from '../../Atoms/Button/Button';
 import Input from '../../Atoms/Input/Input';
 
 import { Box } from './LoginBox-style';
-import { reduxState } from './models';
+import { reduxState } from '../../../models/models';
 import Loader from './Loader';
 
 type ContentBoxProps = {

@@ -4,7 +4,7 @@ import { Redirect } from 'react-router';
 import { useSpring } from 'react-spring';
 import useModal from '../../../hooks/useModal';
 import LocationHeader from '../../Atoms/LocationHeader/LocationHeader';
-import { fetchedPosts, reduxState } from '../../Molecules/LoginBox/models';
+import { fetchedPosts, reduxState } from '../../../models/models';
 import ModalPostContent from '../ModalPostContent/ModalPostContent';
 import {
   ContentInnerGrid,
