@@ -4,7 +4,8 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../../ThemeProvider/theme';
 import Routing from './Routing/Routing';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
-import TeacherCreatePost from '../Organisms/TeacherCreateContent/TeacherCreateContent';
+import TeacherCreatePost from '../Organisms/TeacherCreatePost/TeacherCreatePost';
+import TeacherCreateVideoContent from '../Organisms/TeacherCreateVideoContent/TeacherCreateVideoContent';
 const store = createStore();
 
 function App() {
@@ -13,7 +14,8 @@ function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyles />
         {/* <Routing /> */}
-        <TeacherCreatePost />
+        {/* <TeacherCreatePost /> */}
+        <TeacherCreateVideoContent />
       </ThemeProvider>
     </Provider>
   );

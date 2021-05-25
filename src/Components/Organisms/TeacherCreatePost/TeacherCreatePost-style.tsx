@@ -1,11 +1,5 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-
+export const Header = styled.h1`
+  text-align: center;
 `;
-
-export const style = {
-
-};
-
-export default style;

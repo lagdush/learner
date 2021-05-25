@@ -34,3 +34,23 @@ export const sendPostData = (payload) => {
     }
   };
 };
+
+export const sendVideoData = (payload) => {
+  return async function (dispatch) {
+    try {
+      // await fetch(`${url}posts/me`, {
+      //   method: 'POST',
+      //   headers: {
+      //     Accept: 'application/json',
+      //     'Content-Type': 'application/json'
+      //   },
+      //   body: JSON.stringify(payload)
+      // });
+      console.log(payload);
+      dispatch({ type: showLoader.type });
+      dispatch({ type: hideLoader.type });
+    } catch (error) {
+      dispatch({ type: catchErrors.type, payload: error });
+    }
+  };
+};

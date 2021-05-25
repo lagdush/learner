@@ -4,11 +4,8 @@ export type fetchedPosts = {
   content: string;
   photo: string;
 };
-export type CreatePost = {
-  title: string;
-  content: string;
-  photo: string;
-};
+
+export type CreatePost = Pick<fetchedPosts, 'photo' | 'title' | 'content'>
 
 type fetchedVideos = {
   _id: string;
@@ -16,6 +13,9 @@ type fetchedVideos = {
   url: string;
   photo: string;
 };
+
+export type CreateVideoContent = Pick<fetchedVideos, 'photo' | 'title' | 'url'>
+
 
 type fetchedQuizzes = {
   _id: string;
