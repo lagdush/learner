@@ -29,7 +29,7 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
   //   };
 
   return (
-    <Container>
+    <>
       <StyledTextField
         inputHandler={inputHandler}
         customization={{
@@ -43,7 +43,7 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
       {component}
       <button onClick={addComponentOnClick}>Dodaj kolejną odpowiedź</button>
       {/* <button onClick={removeComponentOnClick}>Usuń odpowiedź</button> */}
-    </Container>
+    </>
   );
 };
 

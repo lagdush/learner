@@ -2,10 +2,12 @@ import {
   FormControlLabel,
   FormLabel,
   Radio,
-  RadioGroup,
+  RadioGroup
 } from '@material-ui/core';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { QuizAnswers } from '../../../models/models';
+import { addAnswer } from '../../../store/quizReducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import { Container } from './TeacherCreateAnswer-style';
 
@@ -14,15 +16,17 @@ type TeacherCreateAnswerProps = {};
 const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
   const answersInitialState: QuizAnswers = { text: '', isCorrect: false };
   const [answers, setAnswers] = useState(answersInitialState);
+  const dispatch = useDispatch();
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAnswers(() => {
       return { ...answers, [e.target.name]: e.target.value };
     });
+    dispatch({ type: addAnswer.type, payload: answers });
   };
 
   return (
-    <Container>
+    <>
       <StyledTextField
         inputHandler={inputHandler}
         customization={{
@@ -53,7 +57,7 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
           label="Odpowiedź poprawna"
         />
       </RadioGroup>
-    </Container>
+    </>
   );
 };
 

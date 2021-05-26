@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../../Atoms/Header/Header';
 import { useDispatch } from 'react-redux';
-import { logout } from '../../../store/reducer';
+import { logout } from '../../../store/httpReducer';
 import {
   Container,
   StyledNavLink,

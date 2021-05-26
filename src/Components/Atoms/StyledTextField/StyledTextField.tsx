@@ -4,14 +4,14 @@ const useStyles = makeStyles((theme) => ({
   input: {
     fontWeight: 500,
     border: 'none',
-    textAlign: 'center'
+    textAlign: 'center',
+    marginBottom: '2rem'
   },
   root: {
     '& > *': {
       textAlign: 'center',
-      fontSize: '.7rem',
-      alignSelf: 'center',
-      padding: '1rem'
+      fontSize: '.5rem',
+      alignSelf: 'center'
     }
   }
 }));
