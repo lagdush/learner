@@ -33,7 +33,8 @@ const TeacherCreatePost: React.FC<TeacherCreatePostProps> = () => {
       [e.target.name]: e.target.value
     });
   };
-  const postData = () => {
+  const postData = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     dispatch(sendPostData(post));
     setPost(postInitialState);
   };

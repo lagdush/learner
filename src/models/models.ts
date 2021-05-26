@@ -1,3 +1,4 @@
+
 export type fetchedPosts = {
   _id: string;
   title: string;
@@ -5,7 +6,7 @@ export type fetchedPosts = {
   photo: string;
 };
 
-export type CreatePost = Pick<fetchedPosts, 'photo' | 'title' | 'content'>
+export type CreatePost = Omit<fetchedPosts, '_id'>
 
 type fetchedVideos = {
   _id: string;
@@ -14,24 +15,19 @@ type fetchedVideos = {
   photo: string;
 };
 
-export type CreateVideoContent = Pick<fetchedVideos, 'photo' | 'title' | 'url'>
+export type CreateVideoContent = Omit<fetchedVideos, '_id'>
 
+
+type QuizAnswers = {text: string; isCorrect: boolean}
+type QuizQuestions = {question: string, answers: QuizAnswers[]}
 
 type fetchedQuizzes = {
   _id: string;
   title: string;
-  questions: [
-    {
-      question: string;
-      answers: [
-        {
-          text: string;
-          isCorrect: boolean;
-        }
-      ];
-    }
-  ];
+  questions: QuizQuestions[]
 };
+
+export type CreateQuiz = Omit<fetchedQuizzes, '_id'>
 
 export default interface IFetchedData {
   user: {
@@ -48,4 +44,9 @@ export interface reduxState{
   loading: boolean,
   error: string
 }
+
+
+
+
+
 

@@ -7,14 +7,6 @@ import { Header } from '../TeacherCreatePost/TeacherCreatePost-style';
 
 type TeacherCreateVideoContentProps = {};
 
-
-//TODO napraw typ
-// type Value =
-//   | Pick<CreateVideoContent, 'photo'>
-//   | Pick<CreateVideoContent, 'title'>
-//   | Pick<CreateVideoContent, 'url'>;
-
-
 type VideoContent = {
   value: string;
   label: string;
@@ -43,7 +35,8 @@ const TeacherCreateVideoContent: React.FC<TeacherCreateVideoContentProps> = () =
       [e.target.name]: e.target.value
     });
   };
-  const postData = () => {
+  const postData = (e: React.SyntheticEvent) => {
+    e.preventDefault();
     dispatch(sendVideoData(videoContent));
     setVideoContent(videoInitialState);
   };

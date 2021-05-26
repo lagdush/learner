@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+export const Container = styled.form`
   margin: 2rem auto;
   padding: 0 2rem;
   display: flex;

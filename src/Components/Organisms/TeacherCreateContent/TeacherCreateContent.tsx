@@ -4,6 +4,12 @@ import ActionButton from '../../Atoms/Button/Button';
 import { PostContent } from '../TeacherCreatePost/TeacherCreatePost';
 import { Container } from './TeacherCreateContent-style';
 
+export enum ButtonType {
+  BUTTON = 'button',
+  SUBMIT = 'submit',
+  RESET = 'reset'
+}
+
 const useStyles = makeStyles((theme) => ({
   input: {
     fontWeight: 500,
@@ -22,7 +28,7 @@ const useStyles = makeStyles((theme) => ({
 
 type TeacherCreateContentProps = {
   inputHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  postData: () => void;
+  postData: (e: React.SyntheticEvent) => void;
   createTextFields: PostContent[];
 };
 
@@ -34,7 +40,7 @@ const TeacherCreateContent: React.FC<TeacherCreateContentProps> = ({
   const classes = useStyles();
 
   return (
-    <Container>
+    <Container onSubmit={postData}>
       {createTextFields.map((fields) => {
         return fields.isTextArea ? (
           <TextField
@@ -68,7 +74,7 @@ const TeacherCreateContent: React.FC<TeacherCreateContentProps> = ({
           />
         );
       })}
-      <ActionButton text="Wyślij" fetch={postData} />
+      <ActionButton type={ButtonType.SUBMIT} text="Wyślij" />
     </Container>
   );
 };
