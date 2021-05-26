@@ -18,8 +18,8 @@ type fetchedVideos = {
 export type CreateVideoContent = Omit<fetchedVideos, '_id'>
 
 
-type QuizAnswers = {text: string; isCorrect: boolean}
-type QuizQuestions = {question: string, answers: QuizAnswers[]}
+export type QuizAnswers = {text: string; isCorrect: boolean}
+export type QuizQuestions = {question: string, answers: QuizAnswers[]}
 
 type fetchedQuizzes = {
   _id: string;

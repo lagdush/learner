@@ -6,6 +6,9 @@ import Routing from './Routing/Routing';
 import GlobalStyles from '../../GlobalStyles/GlobalStyles';
 import TeacherCreatePost from '../Organisms/TeacherCreatePost/TeacherCreatePost';
 import TeacherCreateVideoContent from '../Organisms/TeacherCreateVideoContent/TeacherCreateVideoContent';
+import TeacherCreateAnswer from '../Organisms/TeacherCreateAnswer/TeacherCreateAnswer';
+import TeacherCreateQuestion from '../Organisms/TeacherCreateQuestion/TeacherCreateQuestion';
+import TeacherCreateQuiz from '../Organisms/TeacherCreateQuiz/TeacherCreateQuiz';
 const store = createStore();
 
 function App() {
@@ -15,7 +18,10 @@ function App() {
         <GlobalStyles />
         {/* <Routing /> */}
         {/* <TeacherCreatePost /> */}
-        <TeacherCreateVideoContent />
+        {/* <TeacherCreateVideoContent /> */}
+        {/* <TeacherCreateAnswer /> */}
+        {/* <TeacherCreateQuestion /> */}
+        <TeacherCreateQuiz />
       </ThemeProvider>
     </Provider>
   );
