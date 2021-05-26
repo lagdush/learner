@@ -5,7 +5,8 @@ const httpSlice = createSlice({
   initialState: {
     dataFromApiForStudents: [],
     loading: false,
-    error: []
+    error: [],
+    answer: { text: '', isCorrect: false }
   },
   reducers: {
     loadData: (data, action) => {
@@ -22,6 +23,9 @@ const httpSlice = createSlice({
     },
     logout: (data) => {
       data.dataFromApiForStudents = [];
+    },
+    addAnswer: (state, action) => {
+      state.answer = action.payload;
     }
   }
 });
@@ -31,6 +35,7 @@ export const {
   logout,
   showLoader,
   hideLoader,
-  catchErrors
+  catchErrors,
+  addAnswer
 } = httpSlice.actions;
 export default httpSlice.reducer;

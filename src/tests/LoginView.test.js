@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from '../store/httpReducer';
+import reducer from '../store/reducer';
 import LoginView from '../Components/View/LoginView/LoginView';
 
 const mockRender = (

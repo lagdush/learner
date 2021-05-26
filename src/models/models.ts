@@ -42,7 +42,8 @@ export default interface IFetchedData {
 export interface reduxState{
   dataFromApiForStudents: IFetchedData,
   loading: boolean,
-  error: string
+  error: string,
+  answer: QuizAnswers
 }
 
 

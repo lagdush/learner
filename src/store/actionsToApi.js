@@ -1,5 +1,5 @@
 import { url } from '../Components/helpers/url/url';
-import { loadData, showLoader, hideLoader, catchErrors } from './httpReducer';
+import { loadData, showLoader, hideLoader, catchErrors } from './reducer';
 
 export const getDataFromApi = (id) => {
   return async function (dispatch) {

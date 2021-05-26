@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import reducer from '../store/httpReducer';
+import reducer from '../store/reducer';
 import StudentView from '../Components/View/StudentView/StudentView';
 import { studentNavigationTexts } from '../Components/helpers/studentNavigationTexts/studentNavigationTexts';
 
