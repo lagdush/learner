@@ -1,5 +1,11 @@
+import { Button } from '@material-ui/core';
 import React, { useState } from 'react';
-import { CreateQuiz, QuizAnswers, QuizQuestions } from '../../../models/models';
+import { useDispatch } from 'react-redux';
+import {
+  addQuestion,
+  createQuizSection,
+  resetAnswersArray
+} from '../../../store/reducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import TeacherCreateAnswer from '../TeacherCreateAnswer/TeacherCreateAnswer';
 import { Container } from './TeacherCreateQuestion-style';
@@ -7,13 +13,13 @@ import { Container } from './TeacherCreateQuestion-style';
 type TeacherCreateQuestionProps = {};
 
 const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
-  const questionInitialState: QuizQuestions = { question: '', answers: [] };
-  const [question, setQuestion] = useState(questionInitialState);
+  const dispatch = useDispatch();
+
+  const [question, setQuestion] = useState('');
   const [component, addComponent] = useState<any>([]);
+
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setQuestion(() => {
-      return { ...question, [e.target.name]: e.target.value };
-    });
+    setQuestion(e.target.value);
   };
   const addComponentOnClick = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -33,7 +39,7 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
       <StyledTextField
         inputHandler={inputHandler}
         customization={{
-          value: question.question,
+          value: question,
           name: 'question',
           placeholder: 'Dlaczego... ?',
           label: 'Wprowadź pytanie'
@@ -43,6 +49,15 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
       {component}
       <button onClick={addComponentOnClick}>Dodaj kolejną odpowiedź</button>
       {/* <button onClick={removeComponentOnClick}>Usuń odpowiedź</button> */}
+      <Button
+        onClick={() => {
+          dispatch({ type: addQuestion.type, payload: question });
+          dispatch({ type: createQuizSection.type });
+          dispatch({ type: resetAnswersArray.type });
+        }}
+      >
+        Dodaj pytanie
+      </Button>
     </>
   );
 };

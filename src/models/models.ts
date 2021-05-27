@@ -43,7 +43,9 @@ export interface reduxState{
   dataFromApiForStudents: IFetchedData,
   loading: boolean,
   error: string,
-  answer: QuizAnswers
+  answer: QuizAnswers,
+  quizQuestion: QuizQuestions
+  quizSection: { questions: QuizQuestions[] }
 }
 
 

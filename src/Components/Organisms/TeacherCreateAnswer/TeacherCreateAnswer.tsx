@@ -1,4 +1,5 @@
 import {
+  Button,
   FormControlLabel,
   FormLabel,
   Radio,
@@ -22,7 +23,6 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
     setAnswers(() => {
       return { ...answers, [e.target.name]: e.target.value };
     });
-    dispatch({ type: addAnswer.type, payload: answers });
   };
 
   return (
@@ -57,6 +57,11 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
           label="Odpowiedź poprawna"
         />
       </RadioGroup>
+      <Button
+        onClick={() => dispatch({ type: addAnswer.type, payload: answers })}
+      >
+        Dodaj odpowiedź
+      </Button>
     </>
   );
 };

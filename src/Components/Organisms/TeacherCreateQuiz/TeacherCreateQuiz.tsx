@@ -22,16 +22,10 @@ const TeacherCreateQuiz: React.FC<TeacherCreateQuizProps> = () => {
     });
   };
 
-
-
-  const answer = useSelector((state: reduxState) => state.answer);
+  const answer = useSelector((state: reduxState) => state.quizSection);
   useEffect(() => {
     console.log(answer);
   }, [answer]);
-
-
-
-
 
   const addComponentOnClick = (e: React.SyntheticEvent) => {
     e.preventDefault();
