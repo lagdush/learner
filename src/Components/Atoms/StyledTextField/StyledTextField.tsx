@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {
       textAlign: 'center',
-      fontSize: '.5rem',
+      fontSize: '.7rem',
       alignSelf: 'center'
     }
   }

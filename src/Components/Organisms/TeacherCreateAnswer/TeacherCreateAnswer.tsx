@@ -13,6 +13,7 @@ import { QuizAnswers } from '../../../models/models';
 import { addAnswer } from '../../../store/reducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import { Container } from './TeacherCreateAnswer-style';
+import { createMuiTheme } from '@material-ui/core';
 
 type TeacherCreateAnswerProps = {};
 
@@ -20,9 +21,11 @@ const useStyles = makeStyles({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: '-5em',
-    padding: '1em',
-    fontSize: '10px'
+    marginTop: '-2rem',
+    padding: '1rem'
+  },
+  label: {
+    fontSize: '.7rem'
   }
 });
 
@@ -58,12 +61,14 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
         name="isCorrect"
       >
         <FormControlLabel
+          classes={{ label: classes.label }}
           value="false"
           name="isCorrect"
           control={<Radio />}
           label="Odpowiedź błędna"
         />
         <FormControlLabel
+          classes={{ label: classes.label }}
           value="true"
           name="isCorrect"
           control={<Radio />}

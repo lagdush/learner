@@ -28,6 +28,11 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
     );
   };
   //   TODO: napraw usuwanie elementów
+  // TODO: MOdal do zatwierdzenia pytania
+  // TODO: Modal wyświetla treść pytania oraz odpowiedzi, zaznacza odpowiedź prawidłową
+  // TODO: Jeżeli odpowiedź nie zawiera poprawnej odpowiedzi modal ma o tym poinformować i uniemozliwić zatwierdzenie pytaniaoraz odpowiedżi
+  // TODO: Modal ma mieć dwa przycski: 1) ZAtwierdź i dodaj pytanie, 2) Wróć i popraw
+  // FIXME: CZy potrzebne jest dodawanie kolejnych komponentów? Jeżeli tak to zatwierdzone nie powinny mieć mozliwości edycji treści a mozliwość usuwania
   //   const removeComponentOnClick = (e: React.SyntheticEvent) => {
   //     e.preventDefault();
   //     addComponent(component.pop());
@@ -35,7 +40,7 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
   //   };
 
   return (
-    <div style={{border: '2px solid red'}}>
+    <>
       <StyledTextField
         inputHandler={inputHandler}
         customization={{
@@ -47,18 +52,28 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
       />
       <TeacherCreateAnswer />
       {component}
-      <button onClick={addComponentOnClick}>Dodaj kolejną odpowiedź</button>
-      {/* <button onClick={removeComponentOnClick}>Usuń odpowiedź</button> */}
-      <Button
-        onClick={() => {
-          dispatch({ type: addQuestion.type, payload: question });
-          dispatch({ type: createQuizSection.type });
-          dispatch({ type: resetAnswersArray.type });
-        }}
-      >
-        Zatwierdź pytanie
-      </Button>
-    </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Button
+          color="secondary"
+          style={{ fontSize: '.7em' }}
+          onClick={addComponentOnClick}
+        >
+          Dodaj kolejną odpowiedź
+        </Button>
+        {/* <button onClick={removeComponentOnClick}>Usuń odpowiedź</button> */}
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={() => {
+            dispatch({ type: addQuestion.type, payload: question });
+            dispatch({ type: createQuizSection.type });
+            dispatch({ type: resetAnswersArray.type });
+          }}
+        >
+          Zatwierdź pytanie
+        </Button>
+      </div>
+    </>
   );
 };
 

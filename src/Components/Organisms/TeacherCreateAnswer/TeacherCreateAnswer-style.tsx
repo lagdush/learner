@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.form`
-  background-color: tomato;
+export const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
