@@ -35,7 +35,7 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
   //   };
 
   return (
-    <>
+    <div style={{border: '2px solid red'}}>
       <StyledTextField
         inputHandler={inputHandler}
         customization={{
@@ -56,9 +56,9 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
           dispatch({ type: resetAnswersArray.type });
         }}
       >
-        Dodaj pytanie
+        Zatwierdź pytanie
       </Button>
-    </>
+    </div>
   );
 };
 

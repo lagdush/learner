@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { createQuiz } from '../../../store/reducer';
 import {
   CreateQuiz,
   QuizAnswers,
@@ -9,16 +10,19 @@ import {
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import TeacherCreateQuestion from '../TeacherCreateQuestion/TeacherCreateQuestion';
 import { Container } from './TeacherCreateQuiz-style';
+import { Button } from '@material-ui/core';
 
 type TeacherCreateQuizProps = {};
 
 const TeacherCreateQuiz: React.FC<TeacherCreateQuizProps> = () => {
-  const quizInitialState: CreateQuiz = { title: '', questions: [] };
+  const quizInitialState = { title: '' };
   const [quiz, setQuiz] = useState(quizInitialState);
   const [component, addComponent] = useState<any>([]);
+
+  const dispatch = useDispatch();
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuiz(() => {
-      return { ...quiz, [e.target.name]: e.target.value };
+      return { title: e.target.value };
     });
   };
 
@@ -54,7 +58,11 @@ const TeacherCreateQuiz: React.FC<TeacherCreateQuizProps> = () => {
       <TeacherCreateQuestion />
       {component}
       <button onClick={addComponentOnClick}>Dodaj kolejne pytanie</button>
-      {/* <button onClick={removeComponentOnClick}>Usuń odpowiedź</button> */}
+      <Button
+        onClick={() => dispatch({ type: createQuiz.type, payload: quiz })}
+      >
+        Stwórz quiz
+      </Button>
     </Container>
   );
 };

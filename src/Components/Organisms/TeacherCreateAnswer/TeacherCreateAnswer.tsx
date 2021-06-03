@@ -2,9 +2,11 @@ import {
   Button,
   FormControlLabel,
   FormLabel,
+  makeStyles,
   Radio,
   RadioGroup
 } from '@material-ui/core';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { QuizAnswers } from '../../../models/models';
@@ -14,10 +16,21 @@ import { Container } from './TeacherCreateAnswer-style';
 
 type TeacherCreateAnswerProps = {};
 
+const useStyles = makeStyles({
+  root: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginTop: '-5em',
+    padding: '1em',
+    fontSize: '10px'
+  }
+});
+
 const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
   const answersInitialState: QuizAnswers = { text: '', isCorrect: false };
   const [answers, setAnswers] = useState(answersInitialState);
   const dispatch = useDispatch();
+  const classes = useStyles();
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setAnswers(() => {
@@ -26,7 +39,7 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
   };
 
   return (
-    <>
+    <Container>
       <StyledTextField
         inputHandler={inputHandler}
         customization={{
@@ -37,8 +50,8 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
         }}
       />
 
-      <FormLabel component="legend">Czy odpowiedź jest poprawna</FormLabel>
       <RadioGroup
+        className={classes.root}
         onChange={inputHandler}
         defaultValue="false"
         aria-label="isAnswerCorrect"
@@ -57,12 +70,15 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
           label="Odpowiedź poprawna"
         />
       </RadioGroup>
+
       <Button
+        style={{ fontSize: '.7em' }}
         onClick={() => dispatch({ type: addAnswer.type, payload: answers })}
       >
-        Dodaj odpowiedź
+        <AddBoxIcon />
+        Zatwierdź odpowiedź
       </Button>
-    </>
+    </Container>
   );
 };
 

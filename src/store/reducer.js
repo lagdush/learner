@@ -9,16 +9,17 @@ const httpSlice = createSlice({
     // TODO: może to do innego slice???
     answer: { text: '', isCorrect: false },
     quizQuestion: { question: '', answers: [] },
-    quizSection: { questions: [] }
+    quizSection: { questions: [] },
+    completeQuiz: { title: '', questions: []}
   },
   reducers: {
     loadData: (data, action) => {
       data.dataFromApiForStudents = action.payload;
     },
-    showLoader: (data, action) => {
+    showLoader: (data) => {
       data.loading = true;
     },
-    hideLoader: (data, action) => {
+    hideLoader: (data) => {
       data.loading = false;
     },
     catchErrors: (data, action) => {
@@ -34,8 +35,12 @@ const httpSlice = createSlice({
     addQuestion: (state, action) => {
       state.quizQuestion.question = action.payload;
     },
-    createQuizSection: (state, action) => {
+    createQuizSection: (state) => {
       state.quizSection.questions.push(state.quizQuestion);
+    },
+    createQuiz: (state, action) => {
+      state.completeQuiz.title = action.payload;
+      state.completeQuiz.questions.push(state.quizSection.questions);
     },
     resetAnswersArray: (state) => {
       state.quizQuestion.answers = [];
@@ -52,6 +57,7 @@ export const {
   addAnswer,
   addQuestion,
   createQuizSection,
-  resetAnswersArray
+  resetAnswersArray,
+  createQuiz
 } = httpSlice.actions;
 export default httpSlice.reducer;
