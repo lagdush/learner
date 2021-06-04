@@ -10,7 +10,7 @@ const httpSlice = createSlice({
     answer: { text: '', isCorrect: false },
     quizQuestion: { question: '', answers: [] },
     quizSection: { questions: [] },
-    completeQuiz: { title: '', questions: []}
+    completeQuiz: { title: '', questions: [] }
   },
   reducers: {
     loadData: (data, action) => {
@@ -32,6 +32,10 @@ const httpSlice = createSlice({
       state.answer = action.payload;
       state.quizQuestion.answers.push(state.answer);
     },
+    // editAnswer: (state, action) => {
+      // state.answer = action.payload;
+      // state.quizQuestion.answers;
+    // },
     addQuestion: (state, action) => {
       state.quizQuestion.question = action.payload;
     },
@@ -41,6 +45,9 @@ const httpSlice = createSlice({
     createQuiz: (state, action) => {
       state.completeQuiz.title = action.payload;
       state.completeQuiz.questions.push(state.quizSection.questions);
+    },
+    hasCorrectAnswer: (state) => {
+      state.quizQuestion.answers.some((el) => el.isCorrect === true);
     },
     resetAnswersArray: (state) => {
       state.quizQuestion.answers = [];
@@ -58,6 +65,7 @@ export const {
   addQuestion,
   createQuizSection,
   resetAnswersArray,
-  createQuiz
+  createQuiz,
+  hasCorrectAnswer
 } = httpSlice.actions;
 export default httpSlice.reducer;

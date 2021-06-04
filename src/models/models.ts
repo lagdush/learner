@@ -17,10 +17,6 @@ type fetchedVideos = {
 
 export type CreateVideoContent = Omit<fetchedVideos, '_id'>
 
-
-export type QuizAnswers = {text: string; isCorrect: boolean}
-export type QuizQuestions = {question: string, answers: QuizAnswers[]}
-
 type fetchedQuizzes = {
   _id: string;
   title: string;
@@ -39,13 +35,19 @@ export default interface IFetchedData {
   };
 }
 
+export type QuizAnswers = {text: string; isCorrect: boolean}
+export type QuizQuestions = {question: string, answers: QuizAnswers[]}
+export type QuizSection = { questions: QuizQuestions[] }
+export type CompletedQuiz = { title: {title: string}, questions: QuizQuestions[][] }
+
 export interface reduxState{
   dataFromApiForStudents: IFetchedData,
   loading: boolean,
   error: string,
   answer: QuizAnswers,
-  quizQuestion: QuizQuestions
-  quizSection: { questions: QuizQuestions[] }
+  quizQuestion: QuizQuestions,
+  quizSection: QuizSection,
+  completeQuiz: CompletedQuiz
 }
 
 

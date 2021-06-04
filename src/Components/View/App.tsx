@@ -9,6 +9,7 @@ import TeacherCreateVideoContent from '../Organisms/TeacherCreateVideoContent/Te
 import TeacherCreateAnswer from '../Organisms/TeacherCreateAnswer/TeacherCreateAnswer';
 import TeacherCreateQuestion from '../Organisms/TeacherCreateQuestion/TeacherCreateQuestion';
 import TeacherCreateQuiz from '../Organisms/TeacherCreateQuiz/TeacherCreateQuiz';
+import ShowQuiz from '../Templates/ShowQuiz/ShowQuiz';
 const store = createStore();
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         {/* <TeacherCreateAnswer /> */}
         {/* <TeacherCreateQuestion /> */}
         <TeacherCreateQuiz />
+        <ShowQuiz />
       </ThemeProvider>
     </Provider>
   );

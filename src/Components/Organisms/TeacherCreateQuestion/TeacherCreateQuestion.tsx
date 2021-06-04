@@ -1,10 +1,12 @@
 import { Button } from '@material-ui/core';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { reduxState } from '../../../models/models';
 import {
   addQuestion,
   createQuizSection,
-  resetAnswersArray
+  resetAnswersArray,
+  hasCorrectAnswer
 } from '../../../store/reducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import TeacherCreateAnswer from '../TeacherCreateAnswer/TeacherCreateAnswer';
@@ -17,7 +19,7 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
 
   const [question, setQuestion] = useState('');
   const [component, addComponent] = useState<any>([]);
-
+   const [disabledToggle, setDisabledToggle] = useState(false);
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(e.target.value);
   };
@@ -27,6 +29,14 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
       component.concat(<TeacherCreateAnswer key={component.length} />)
     );
   };
+  const confirmQuestionSection = () => {
+    setDisabledToggle(true);
+    dispatch({ type: hasCorrectAnswer.type });
+    dispatch({ type: addQuestion.type, payload: question });
+    dispatch({ type: createQuizSection.type });
+    dispatch({ type: resetAnswersArray.type });
+  };
+
   //   TODO: napraw usuwanie elementów
   // TODO: MOdal do zatwierdzenia pytania
   // TODO: Modal wyświetla treść pytania oraz odpowiedzi, zaznacza odpowiedź prawidłową
@@ -43,6 +53,7 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
     <>
       <StyledTextField
         inputHandler={inputHandler}
+        disabled={disabledToggle}
         customization={{
           value: question,
           name: 'question',
@@ -61,14 +72,11 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
           Dodaj kolejną odpowiedź
         </Button>
         {/* <button onClick={removeComponentOnClick}>Usuń odpowiedź</button> */}
+
         <Button
           color="primary"
           variant="contained"
-          onClick={() => {
-            dispatch({ type: addQuestion.type, payload: question });
-            dispatch({ type: createQuizSection.type });
-            dispatch({ type: resetAnswersArray.type });
-          }}
+          onClick={confirmQuestionSection}
         >
           Zatwierdź pytanie
         </Button>

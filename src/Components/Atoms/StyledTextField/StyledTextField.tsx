@@ -25,11 +25,29 @@ type Customization = {
 type TextFieldProps = {
   customization: Customization;
   inputHandler: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  disabled?: boolean;
 };
 
-const StyledTextField: React.FC<TextFieldProps> = ({customization, inputHandler}) => {
+const StyledTextField: React.FC<TextFieldProps> = ({
+  customization,
+  inputHandler,
+  disabled = false
+}) => {
   const classes = useStyles();
-  return (
+  return disabled ? (
+    <TextField
+      className={classes.root}
+      InputProps={{ className: classes.input }}
+      required
+      fullWidth
+      value={customization.value}
+      onChange={inputHandler}
+      name={customization.name}
+      placeholder={customization.placeholder}
+      label={customization.label}
+      disabled
+    />
+  ) : (
     <TextField
       className={classes.root}
       InputProps={{ className: classes.input }}

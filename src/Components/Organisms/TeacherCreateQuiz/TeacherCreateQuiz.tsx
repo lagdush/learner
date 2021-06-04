@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { createQuiz } from '../../../store/reducer';
 import {
@@ -15,27 +15,26 @@ import { Button } from '@material-ui/core';
 type TeacherCreateQuizProps = {};
 
 const TeacherCreateQuiz: React.FC<TeacherCreateQuizProps> = () => {
+  const dispatch = useDispatch();
   const quizInitialState = { title: '' };
   const [quiz, setQuiz] = useState(quizInitialState);
   const [component, addComponent] = useState<any>([]);
-
-  const dispatch = useDispatch();
+  const [disabledToggle, setDisabledToggle] = useState(false);
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuiz(() => {
       return { title: e.target.value };
     });
   };
 
-  const answer = useSelector((state: reduxState) => state.quizSection);
-  useEffect(() => {
-    console.log(answer);
-  }, [answer]);
-
   const addComponentOnClick = (e: React.SyntheticEvent) => {
     e.preventDefault();
     addComponent(
       component.concat(<TeacherCreateQuestion key={component.length} />)
     );
+  };
+  const confirmQuiz = () => {
+    setDisabledToggle(true);
+    dispatch({ type: createQuiz.type, payload: quiz });
   };
   //   TODO: napraw usuwanie elementów
   //   const removeComponentOnClick = (e: React.SyntheticEvent) => {
@@ -48,6 +47,7 @@ const TeacherCreateQuiz: React.FC<TeacherCreateQuizProps> = () => {
     <Container>
       <StyledTextField
         inputHandler={inputHandler}
+        disabled={disabledToggle}
         customization={{
           value: quiz.title,
           name: 'title',
@@ -58,11 +58,7 @@ const TeacherCreateQuiz: React.FC<TeacherCreateQuizProps> = () => {
       <TeacherCreateQuestion />
       {component}
       <button onClick={addComponentOnClick}>Dodaj kolejne pytanie</button>
-      <Button
-        onClick={() => dispatch({ type: createQuiz.type, payload: quiz })}
-      >
-        Stwórz quiz
-      </Button>
+      <Button onClick={confirmQuiz}>Stwórz quiz</Button>
     </Container>
   );
 };
