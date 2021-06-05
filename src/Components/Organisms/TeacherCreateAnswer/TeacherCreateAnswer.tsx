@@ -1,11 +1,12 @@
 import {
-  Button,
+  Tooltip,
+  IconButton,
   FormControlLabel,
   makeStyles,
   Radio,
   RadioGroup
 } from '@material-ui/core';
-import AddBoxIcon from '@material-ui/icons/AddBox';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { QuizAnswers } from '../../../models/models';
@@ -19,7 +20,6 @@ const useStyles = makeStyles({
   root: {
     display: 'flex',
     flexDirection: 'row',
-    marginTop: '-2rem',
     padding: '1rem'
   },
   label: {
@@ -30,8 +30,6 @@ const useStyles = makeStyles({
 const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
   const answersInitialState: QuizAnswers = { text: '', isCorrect: false };
   const [answers, setAnswers] = useState(answersInitialState);
-  const [disabledToggle, setDisabledToggle] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -52,15 +50,14 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
       return { ...answers, [e.target.name]: targetValue };
     });
   };
-  const createQuestionButtonHandler = () => {
-    setDisabledToggle(true);
+  const createQuestion = () => {
     dispatch({ type: addAnswer.type, payload: answers });
+    setAnswers(answersInitialState);
   };
   return (
     <Container>
       <StyledTextField
         inputHandler={inputHandler}
-        disabled={disabledToggle}
         customization={{
           value: answers.text,
           name: 'text',
@@ -68,93 +65,39 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
           label: 'Wpisz odpowiedź'
         }}
       />
-      {disabledToggle ? (
-        <>
-          <RadioGroup
-            className={classes.root}
-            onChange={inputHandler}
-            defaultValue="false"
-            aria-label="isAnswerCorrect"
-            name="isCorrect"
-          >
-            <FormControlLabel
-              classes={{ label: classes.label }}
-              value="false"
-              name="isCorrect"
-              control={<Radio />}
-              label="Odpowiedź błędna"
-              disabled
-            />
-            <FormControlLabel
-              classes={{ label: classes.label }}
-              value="true"
-              name="isCorrect"
-              control={<Radio />}
-              label="Odpowiedź poprawna"
-              disabled
-            />
-          </RadioGroup>
-          <Button
-            style={{ fontSize: '.7em' }}
-            disabled
-            onClick={createQuestionButtonHandler}
-          >
-            <AddBoxIcon />
-            Zatwierdź odpowiedź
-          </Button>
-
-          <Button
-            style={{ fontSize: '.7em' }}
-            onClick={() => {
-              setDisabledToggle(false);
-              setIsEditing(true);
-            }}
-          >
-            Edytuj
-          </Button>
-        </>
-      ) : (
-        <>
-          <RadioGroup
-            className={classes.root}
-            onChange={inputHandler}
-            defaultValue="false"
-            aria-label="isAnswerCorrect"
-            name="isCorrect"
-          >
-            <FormControlLabel
-              classes={{ label: classes.label }}
-              value="false"
-              name="isCorrect"
-              control={<Radio />}
-              label="Odpowiedź błędna"
-            />
-            <FormControlLabel
-              classes={{ label: classes.label }}
-              value="true"
-              name="isCorrect"
-              control={<Radio />}
-              label="Odpowiedź poprawna"
-            />
-          </RadioGroup>
-          {isEditing ? (
-            <Button
-              style={{ fontSize: '.7em' }}
-              onClick={() => console.log('edit')}
-            >
-              Zatwierdź edycje
-            </Button>
-          ) : (
-            <Button
-              style={{ fontSize: '.7em' }}
-              onClick={createQuestionButtonHandler}
-            >
-              <AddBoxIcon />
-              Zatwierdź odpowiedź
-            </Button>
-          )}
-        </>
-      )}
+      <RadioGroup
+        style={{ gridRow: '2/3', gridColumn: '1/-1' }}
+        className={classes.root}
+        onChange={inputHandler}
+        defaultValue="false"
+        aria-label="isAnswerCorrect"
+        name="isCorrect"
+      >
+        <FormControlLabel
+          classes={{ label: classes.label }}
+          value="false"
+          name="isCorrect"
+          control={<Radio />}
+          label="Odpowiedź błędna"
+        />
+        <FormControlLabel
+          classes={{ label: classes.label }}
+          value="true"
+          name="isCorrect"
+          control={<Radio />}
+          label="Odpowiedź poprawna"
+        />
+      </RadioGroup>
+      <Tooltip title="Dodaj odpowiedź">
+        <IconButton
+          style={{ gridColumn: '2/3', gridRow: '1/2' }}
+          onClick={createQuestion}
+          aria-label="add question"
+          color="primary"
+        >
+          <AddCircleIcon />
+        </IconButton>
+      </Tooltip>
     </Container>
   );
 };

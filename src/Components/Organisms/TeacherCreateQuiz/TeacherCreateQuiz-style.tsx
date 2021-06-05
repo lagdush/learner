@@ -8,5 +8,4 @@ export const Container = styled.form`
   justify-content: space-evenly;
   align-items: center;
   max-width: 80%;
-  border: 2px dotted purple;
 `;

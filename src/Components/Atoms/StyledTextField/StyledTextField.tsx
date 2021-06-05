@@ -5,7 +5,7 @@ const useStyles = makeStyles((theme) => ({
     fontWeight: 500,
     border: 'none',
     textAlign: 'center',
-    marginBottom: '2rem'
+    marginBottom: '1rem'
   },
   root: {
     '& > *': {

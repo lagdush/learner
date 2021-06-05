@@ -9,7 +9,6 @@ export const Container = styled.div`
 `;
 
 export const AnswerContainer = styled.div`
-  border: 2px solid red;
   margin: 1rem;
   width: 80%;
   display: flex;
