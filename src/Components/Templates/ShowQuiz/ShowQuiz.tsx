@@ -23,6 +23,8 @@ const ShowQuiz: React.FC<ShowQuizProps> = () => {
     setEditQuestion(() => e.target.value);
   };
 
+  //TODO: poprawić edycję quizu, obecnie po kliknięciu można edytować wszystkie pola, stan inputa aktualizuje sie we wszystkich polach
+
   return (
     <Container>
       <h1>Quiz: {title.title}</h1>
