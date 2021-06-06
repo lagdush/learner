@@ -33,15 +33,16 @@ const httpSlice = createSlice({
       state.quizQuestion.answers.push(state.answer);
     },
     editAnswer: (state, action) => {
+      if (!action.payload.content) return;
       const content =
         state.quizSection.questions[action.payload.mainId].answers[
           action.payload.id
         ];
-      if (!action.payload.content) {
-        return;
-      } else {
-        content.text = action.payload.content;
-      }
+      content.text = action.payload.content;
+    },
+    editQuizQuestion: (state, action) => {
+      state.quizSection.questions[action.payload.mainId].question =
+        action.payload.content;
     },
     addQuestion: (state, action) => {
       state.quizQuestion.question = action.payload;
@@ -74,6 +75,7 @@ export const {
   resetAnswersArray,
   createQuiz,
   hasCorrectAnswer,
-  editAnswer
+  editAnswer,
+  editQuizQuestion
 } = httpSlice.actions;
 export default httpSlice.reducer;
