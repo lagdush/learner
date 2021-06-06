@@ -35,7 +35,9 @@ const EditQuizAnswer: React.FC<EditQuizAnswerProps> = ({
         defaultValue={editContent}
         onChange={inputHandler}
       />
-      <Button onClick={() => editQuizContent(mainId, id)}>Zatwierdź</Button>
+      <Button onClick={() => editQuizContent(mainId, id)}>
+        Aktualizuj odpowiedź
+      </Button>
     </>
   );
 };
@@ -65,11 +67,18 @@ const EditQuizQuestion: React.FC<EditQuizQuestionProps> = ({
   return (
     <>
       <TextField
+        fullWidth
         value={editQuestion}
         defaultValue={editContent}
         onChange={inputHandler}
       />
-      <Button onClick={() => editQuizContent(mainId)}>Zatwierdź</Button>
+      <Button
+        variant="outlined"
+        style={{ margin: '1rem' }}
+        onClick={() => editQuizContent(mainId)}
+      >
+        Aktualizuj pytanie
+      </Button>
     </>
   );
 };
@@ -77,45 +86,58 @@ const EditQuizQuestion: React.FC<EditQuizQuestionProps> = ({
 
 const ShowQuiz: React.FC = () => {
   const [isEdit, setEdit] = useState(true);
+  const [isEditQuestion, setEditQuestion] = useState(true);
 
   const { title } = useSelector((state: reduxState) => state.completeQuiz);
   const quizState = useSelector((state: reduxState) => state.quizSection);
 
   return (
     <Container>
-      <h1>Quiz: {title.title}</h1>{' '}
-      <Button onClick={() => setEdit(false)}>Edytuj</Button>
+      <h1>Quiz: {title.title}</h1>
+      <div style={{ display: 'flex' }}>
+        <Button
+          style={{ margin: '1rem' }}
+          variant="contained"
+          onClick={() => setEdit(!isEdit)}
+        >
+          Edytuj Odpowiedzi
+        </Button>
+        <Button
+          style={{ margin: '1rem' }}
+          variant="contained"
+          onClick={() => setEditQuestion(!isEditQuestion)}
+        >
+          Edytuj Pytania
+        </Button>
+      </div>
+
       {quizState.questions.map((quiz, mainId) => {
-        return isEdit ? (
+        return (
           <AnswerContainer key={mainId}>
-            <p style={{ textAlign: 'center' }}>{quiz.question.toUpperCase()}</p>{' '}
+            {isEditQuestion ? (
+              <p style={{ textAlign: 'center' }}>
+                {quiz.question.toUpperCase()}
+              </p>
+            ) : (
+              <EditQuizQuestion
+                editContent={quiz.question}
+                setEdit={() => setEditQuestion(!isEditQuestion)}
+                mainId={mainId}
+              />
+            )}
             <ol>
               {quiz.answers.map((answer, id) => (
                 <ListElement key={id} isCorrect={answer.isCorrect}>
-                  {answer.text} --{' '}
-                  {answer.isCorrect === true
-                    ? 'Poprawna odpowiedź'
-                    : 'Błedna Odpowiedź'}
-                </ListElement>
-              ))}
-            </ol>
-          </AnswerContainer>
-        ) : (
-          <AnswerContainer key={mainId}>
-            <EditQuizQuestion
-              editContent={quiz.question}
-              setEdit={() => setEdit(!isEdit)}
-              mainId={mainId}
-            />
-            <ol>
-              {quiz.answers.map((answer, id) => (
-                <ListElement key={id} isCorrect={answer.isCorrect}>
-                  <EditQuizAnswer
-                    editContent={answer.text}
-                    setEdit={() => setEdit(!isEdit)}
-                    mainId={mainId}
-                    id={id}
-                  />
+                  {isEdit ? (
+                    answer.text
+                  ) : (
+                    <EditQuizAnswer
+                      editContent={answer.text}
+                      setEdit={() => setEdit(!isEdit)}
+                      mainId={mainId}
+                      id={id}
+                    />
+                  )}
                 </ListElement>
               ))}
             </ol>

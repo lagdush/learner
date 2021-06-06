@@ -18,5 +18,5 @@ export const AnswerContainer = styled.div`
 `;
 
 export const ListElement = styled.li<IsCorrect>`
-  color: ${(props) => (props.isCorrect ? 'green' : 'red')};
+  text-decoration: ${(props) => (props.isCorrect ? 'underline' : 'none')};
 `;

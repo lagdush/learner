@@ -41,6 +41,7 @@ const httpSlice = createSlice({
       content.text = action.payload.content;
     },
     editQuizQuestion: (state, action) => {
+      if (!action.payload.content) return;
       state.quizSection.questions[action.payload.mainId].question =
         action.payload.content;
     },
