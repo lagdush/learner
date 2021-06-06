@@ -1,11 +1,11 @@
-import { Button } from '@material-ui/core';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Button, Tooltip } from '@material-ui/core';
+import { reduxState } from '../../../models/models';
 import {
   addQuestion,
   createQuizSection,
-  resetAnswersArray,
-  hasCorrectAnswer
+  resetAnswersArray
 } from '../../../store/reducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import TeacherCreateAnswer from '../TeacherCreateAnswer/TeacherCreateAnswer';
@@ -14,14 +14,20 @@ type TeacherCreateQuestionProps = {};
 
 const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
   const dispatch = useDispatch();
-
+  const hasAnswers = useSelector(
+    (state: reduxState) => state.quizQuestion.answers
+  );
+  const [hasCorrectAnswers, setHasCorrectAnswers] = useState<boolean>();
   const [question, setQuestion] = useState('');
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setQuestion(e.target.value);
   };
 
+  useEffect(() => {
+    setHasCorrectAnswers(() => hasAnswers.some((el) => el.isCorrect === true));
+  }, [hasAnswers]);
+
   const confirmQuestionSection = () => {
-    dispatch({ type: hasCorrectAnswer.type });
     dispatch({ type: addQuestion.type, payload: question });
     dispatch({ type: createQuizSection.type });
     dispatch({ type: resetAnswersArray.type });
@@ -30,8 +36,6 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
 
   //   TODO: napraw usuwanie elementów
   // TODO: MOdal do zatwierdzenia pytania
-  // TODO: Modal wyświetla treść pytania oraz odpowiedzi, zaznacza odpowiedź prawidłową
-  // TODO: Jeżeli odpowiedź nie zawiera poprawnej odpowiedzi modal ma o tym poinformować i uniemozliwić zatwierdzenie pytaniaoraz odpowiedżi
   // TODO: Modal ma mieć dwa przycski: 1) ZAtwierdź i dodaj pytanie, 2) Wróć i popraw
 
   return (
@@ -46,14 +50,26 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
         }}
       />
       <TeacherCreateAnswer />
-
-      <Button
-        color="primary"
-        variant="contained"
-        onClick={confirmQuestionSection}
-      >
-        Zatwierdź pytanie
-      </Button>
+      {hasAnswers.length === 0 || hasCorrectAnswers === false ? (
+        <Tooltip
+          title="By odblokować dodaj przynajmniej jedną poprawną odpowiedź"
+          arrow
+        >
+          <span>
+            <Button color="primary" variant="contained" disabled>
+              Dodaj odpowiedź by odblokować
+            </Button>
+          </span>
+        </Tooltip>
+      ) : (
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={confirmQuestionSection}
+        >
+          Zatwierdź pytanie
+        </Button>
+      )}
     </>
   );
 };

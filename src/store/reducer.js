@@ -55,9 +55,6 @@ const httpSlice = createSlice({
       state.completeQuiz.title = action.payload;
       state.completeQuiz.questions.push(state.quizSection.questions);
     },
-    hasCorrectAnswer: (state) => {
-      state.quizQuestion.answers.some((el) => el.isCorrect === true);
-    },
     resetAnswersArray: (state) => {
       state.quizQuestion.answers = [];
     }
@@ -75,7 +72,6 @@ export const {
   createQuizSection,
   resetAnswersArray,
   createQuiz,
-  hasCorrectAnswer,
   editAnswer,
   editQuizQuestion
 } = httpSlice.actions;
