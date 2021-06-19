@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { CompletedQuiz, QuizAnswers, QuizQuestions, QuizSection } from '../models/models';
 
 const httpSlice = createSlice({
   name: 'datasForStudents',
@@ -7,10 +8,10 @@ const httpSlice = createSlice({
     loading: false,
     error: [],
     // TODO: może to do innego slice???
-    answer: { text: '', isCorrect: false },
-    quizQuestion: { question: '', answers: [] },
-    quizSection: { questions: [] },
-    completeQuiz: { title: '', questions: [] }
+    answer: { text: '', isCorrect: "Answer is incorrect" } as QuizAnswers,
+    quizQuestion: { question: '', answers: [] } as QuizQuestions,
+    quizSection: { questions: [] } as QuizSection,
+    completeQuiz: {  title: {title: ''}, questions: [] } as CompletedQuiz
   },
   reducers: {
     loadData: (data, action) => {
@@ -23,11 +24,13 @@ const httpSlice = createSlice({
       data.loading = false;
     },
     catchErrors: (data, action) => {
+      //@ts-ignore
       data.error.push(action.payload);
     },
     logout: (data) => {
       data.dataFromApiForStudents = [];
     },
+       // TODO: może to do innego slice???
     addAnswer: (state, action) => {
       state.answer = action.payload;
       state.quizQuestion.answers.push(state.answer);
@@ -41,7 +44,10 @@ const httpSlice = createSlice({
       content.text = action.payload.content;
     },
     removeAnswer: (state, action) => {
-      state.quizSection.questions[action.payload.mainId].answers.splice(
+      if(state.quizSection.questions[action.payload.mainId].answers.filter(answer=>answer.isCorrect === 'Answer is correct').length === 1 && state.quizSection.questions[action.payload.mainId].answers[action.payload.id].isCorrect==='Answer is correct') {
+        return
+      }
+    state.quizSection.questions[action.payload.mainId].answers.splice(
         action.payload.id,
         1
       );
@@ -76,6 +82,7 @@ export const {
   showLoader,
   hideLoader,
   catchErrors,
+     // TODO: może to do innego slice???
   addAnswer,
   addQuestion,
   createQuizSection,

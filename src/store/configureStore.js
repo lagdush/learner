@@ -1,10 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
 import httpReducer from './reducer';
 
-
 const createStore = () => {
   return configureStore({
-    reducer: httpReducer,
+    reducer: httpReducer
   });
 };
 

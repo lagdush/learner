@@ -18,5 +18,5 @@ export const AnswerContainer = styled.div`
 
 export const ListElement = styled.li<IsCorrect>`
   text-decoration: ${(props) =>
-    props.isCorrect === 'Answer is correct' ? 'underline' : 'none'};
+    props.isCorrect === 'Answer is correct' && 'underline'};
 `;
