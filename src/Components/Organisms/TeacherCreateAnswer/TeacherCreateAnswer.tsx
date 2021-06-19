@@ -28,26 +28,18 @@ const useStyles = makeStyles({
 });
 
 const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
-  const answersInitialState: QuizAnswers = { text: '', isCorrect: false };
+  // const [radioValue, setRadioValue] = useState<'true' | 'false'>('false');
+  const answersInitialState: QuizAnswers = {
+    text: '',
+    isCorrect: 'Answer is incorrect'
+  };
   const [answers, setAnswers] = useState(answersInitialState);
   const dispatch = useDispatch();
   const classes = useStyles();
 
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    let targetValue: string | boolean;
-    switch (e.target.value) {
-      case 'true':
-        targetValue = true;
-        break;
-      case 'false':
-        targetValue = false;
-        break;
-      default:
-        targetValue = e.target.value;
-        break;
-    }
     setAnswers(() => {
-      return { ...answers, [e.target.name]: targetValue };
+      return { ...answers, [e.target.name]: e.target.value };
     });
   };
   const createQuestion = () => {
@@ -69,20 +61,20 @@ const TeacherCreateAnswer: React.FC<TeacherCreateAnswerProps> = () => {
         style={{ gridRow: '2/3', gridColumn: '1/-1' }}
         className={classes.root}
         onChange={inputHandler}
-        defaultValue="false"
+        value={answers.isCorrect}
         aria-label="isAnswerCorrect"
         name="isCorrect"
       >
         <FormControlLabel
           classes={{ label: classes.label }}
-          value="false"
+          value="Answer is incorrect"
           name="isCorrect"
           control={<Radio />}
           label="Odpowiedź błędna"
         />
         <FormControlLabel
           classes={{ label: classes.label }}
-          value="true"
+          value="Answer is correct"
           name="isCorrect"
           control={<Radio />}
           label="Odpowiedź poprawna"

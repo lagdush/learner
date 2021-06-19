@@ -17,7 +17,6 @@ const EditQuizQuestion: React.FC<EditQuizQuestionProps> = ({
   const dispatch = useDispatch();
   const editQuizContent = (mainId: number) => {
     const idPayload = { mainId, content: editQuestion };
-
     dispatch({ type: editQuizQuestion.type, payload: idPayload });
     //@ts-ignore
     setEdit();

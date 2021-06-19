@@ -33,12 +33,13 @@ export default interface IFetchedData {
     _id: string;
     email: string;
   };
-}
+};
 
-export type QuizAnswers = {text: string; isCorrect: boolean}
-export type QuizQuestions = {question: string, answers: QuizAnswers[]}
-export type QuizSection = { questions: QuizQuestions[] }
-export type CompletedQuiz = { title: {title: string}, questions: QuizQuestions[][] }
+export type QuizAnswers = {text: string; isCorrect: 'Answer is incorrect' | 'Answer is correct'};
+export type IsCorrect = Pick<QuizAnswers, 'isCorrect'>;
+export type QuizQuestions = {question: string, answers: QuizAnswers[]};
+export type QuizSection = { questions: QuizQuestions[] };
+export type CompletedQuiz = { title: {title: string}, questions: QuizQuestions[][] };
 
 export interface reduxState{
   dataFromApiForStudents: IFetchedData,
@@ -48,7 +49,7 @@ export interface reduxState{
   quizQuestion: QuizQuestions,
   quizSection: QuizSection,
   completeQuiz: CompletedQuiz
-}
+};
 
 
 

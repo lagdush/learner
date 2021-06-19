@@ -1,6 +1,5 @@
 import styled from 'styled-components';
-
-type IsCorrect = { isCorrect: boolean };
+import { IsCorrect } from '../../../models/models';
 
 export const Container = styled.div`
   display: flex;
@@ -18,5 +17,6 @@ export const AnswerContainer = styled.div`
 `;
 
 export const ListElement = styled.li<IsCorrect>`
-  text-decoration: ${(props) => (props.isCorrect ? 'underline' : 'none')};
+  text-decoration: ${(props) =>
+    props.isCorrect === 'Answer is correct' ? 'underline' : 'none'};
 `;

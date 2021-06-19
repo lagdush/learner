@@ -24,7 +24,9 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
   };
 
   useEffect(() => {
-    setHasCorrectAnswers(() => hasAnswers.some((el) => el.isCorrect === true));
+    setHasCorrectAnswers(() =>
+      hasAnswers.some((el) => el.isCorrect === 'Answer is correct')
+    );
   }, [hasAnswers]);
 
   const confirmQuestionSection = () => {
@@ -34,7 +36,6 @@ const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
     setQuestion('');
   };
 
-  //   TODO: napraw usuwanie elementów
   // TODO: MOdal do zatwierdzenia pytania
   // TODO: Modal ma mieć dwa przycski: 1) ZAtwierdź i dodaj pytanie, 2) Wróć i popraw
 
