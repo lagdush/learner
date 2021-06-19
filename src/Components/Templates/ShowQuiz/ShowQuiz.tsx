@@ -6,33 +6,32 @@ import { AnswerContainer, Container, ListElement } from './ShowQuiz-style';
 import EditQuizAnswer from './EditQuizAnswer/EditQuizAnswer';
 import EditQuizQuestion from './EditQuizQuestion/EditQuizQuestion';
 
-const editButtonsNames: Readonly<[string, string]> = [
-  'Edytuj odpowiedzi',
-  'Edytuj pytania'
-];
-
 const ShowQuiz: React.FC = () => {
   const [isEdit, setEdit] = useState(true);
   const [isEditQuestion, setEditQuestion] = useState(true);
   const { title } = useSelector((state: reduxState) => state.completeQuiz);
   const quizState = useSelector((state: reduxState) => state.quizSection);
 
+  //TODO: Naprawić edycje elementów, muszą się aktualizować niezależnie
+
   return (
     <Container>
       <h1>Quiz: {title.title}</h1>
       <div style={{ display: 'flex' }}>
-        {editButtonsNames.map((el, id) => {
-          return (
-            <Button
-              key={id}
-              style={{ margin: '1rem' }}
-              variant="contained"
-              onClick={() => setEdit(!isEdit)}
-            >
-              {el}
-            </Button>
-          );
-        })}
+        <Button
+          style={{ margin: '1rem' }}
+          variant="contained"
+          onClick={() => setEdit(!isEdit)}
+        >
+          Edytuj odpowiedzi
+        </Button>
+        <Button
+          style={{ margin: '1rem' }}
+          variant="contained"
+          onClick={() => setEditQuestion(!isEditQuestion)}
+        >
+          Edytuj pytania
+        </Button>
       </div>
 
       {quizState.questions.map((quiz, mainId) => {

@@ -10,7 +10,7 @@ const GlobalStyles = createGlobalStyle`
 } */
 html {
    box-sizing: border-box;
-   font-size: calc(16px + (32 - 16) * ((100vw - 320px) / (1600 - 320)));
+   font-size: calc(14px + (24 - 14) * ((100vw - 320px) / (1600 - 320)));
    background-color: #edf5e1;
 }
 *, *:before, *:after{

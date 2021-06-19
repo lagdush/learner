@@ -40,6 +40,12 @@ const httpSlice = createSlice({
         ];
       content.text = action.payload.content;
     },
+    removeAnswer: (state, action) => {
+      state.quizSection.questions[action.payload.mainId].answers.splice(
+        action.payload.id,
+        1
+      );
+    },
     editQuizQuestion: (state, action) => {
       if (!action.payload.content) return;
       state.quizSection.questions[action.payload.mainId].question =
@@ -47,6 +53,9 @@ const httpSlice = createSlice({
     },
     addQuestion: (state, action) => {
       state.quizQuestion.question = action.payload;
+    },
+    removeQuestion: (state, action) => {
+      state.quizSection.questions.splice(action.payload.mainId, 1);
     },
     createQuizSection: (state) => {
       state.quizSection.questions.push(state.quizQuestion);
@@ -73,6 +82,8 @@ export const {
   resetAnswersArray,
   createQuiz,
   editAnswer,
-  editQuizQuestion
+  editQuizQuestion,
+  removeAnswer,
+  removeQuestion
 } = httpSlice.actions;
 export default httpSlice.reducer;

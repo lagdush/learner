@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@material-ui/core';
 import { useDispatch } from 'react-redux';
-import { editAnswer } from '../../../../store/reducer';
+import { editAnswer, removeAnswer } from '../../../../store/reducer';
 
 type EditQuizAnswerProps = {
   editContent: string;
@@ -23,6 +23,10 @@ const EditQuizAnswer: React.FC<EditQuizAnswerProps> = ({
     //@ts-ignore
     setEdit();
   };
+
+  const remove = (mainId: number, id: number) => {
+    dispatch({ type: removeAnswer.type, payload: { mainId, id } });
+  };
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setEditQuizAnswer(() => e.target.value);
     console.log(editQuizAnswer);
@@ -37,6 +41,7 @@ const EditQuizAnswer: React.FC<EditQuizAnswerProps> = ({
       <Button onClick={() => editQuizContent(mainId, id)}>
         Aktualizuj odpowiedź
       </Button>
+      <Button onClick={() => remove(mainId, id)}>Usuń odpowiedź</Button>
     </>
   );
 };
