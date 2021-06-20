@@ -55,11 +55,10 @@ const ShowQuiz: React.FC = () => {
             <ol>
               {quiz.answers.map((answer, id) => (
                 <ListElement key={id} isCorrect={answer.isCorrect}>
-                  {isEdit ? (
-                    answer.text
+                  {isEdit ? (answer.text
                   ) : (
                     <EditQuizAnswer
-                      editContent={answer.text}
+                      editContent={answer}
                       setEdit={() => setEdit(!isEdit)}
                       mainId={mainId}
                       id={id}

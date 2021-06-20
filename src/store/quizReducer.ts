@@ -15,12 +15,21 @@ const quizSlice = createSlice({
       state.quizQuestion.answers.push(state.answer);
     },
     editAnswer: (state, action) => {
+      const correctAnswersArray = state.quizSection.questions[action.payload.mainId].answers.filter(answer=>answer.isCorrect === 'Answer is correct');
+      const hasOneCorrectAnswer = state.quizSection.questions[action.payload.mainId].answers[action.payload.id].isCorrect==='Answer is correct';
+
+      if(correctAnswersArray.length === 1 && hasOneCorrectAnswer) {
+        return
+      }
       if (!action.payload.content) return;
+
+
       const content =
         state.quizSection.questions[action.payload.mainId].answers[
           action.payload.id
         ];
-      content.text = action.payload.content;
+      content.text = action.payload.content.editQuizAnswer;
+      content.isCorrect = action.payload.content.editQuizIsCorrect
     },
     removeAnswer: (state, action) => {
       const correctAnswersArray = state.quizSection.questions[action.payload.mainId].answers.filter(answer=>answer.isCorrect === 'Answer is correct');
