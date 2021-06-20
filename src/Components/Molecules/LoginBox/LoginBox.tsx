@@ -18,9 +18,11 @@ const LoginBox: React.FC<ContentBoxProps> = ({ startTransition }) => {
   const history = useHistory();
 
   const { user } = useSelector(
-    (state: reduxState) => state.dataFromApiForStudents
+    (state: reduxState) => state.datasForStudents.dataFromApiForStudents
   );
-  const { loading } = useSelector((state: reduxState) => state);
+  const loading = useSelector(
+    (state: reduxState) => state.datasForStudents.loading
+  );
 
   const inputRef = useRef<string>();
 

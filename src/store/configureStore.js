@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import httpReducer from './reducer';
+import quizReducer from './quizReducer';
 
-const createStore = () => {
-  return configureStore({
-    reducer: httpReducer
-  });
-};
+const store = configureStore({
+  reducer: {
+    datasForStudents: httpReducer,
+    quizCreate: quizReducer
+  }
+});
 
-export default createStore;
+export default store;

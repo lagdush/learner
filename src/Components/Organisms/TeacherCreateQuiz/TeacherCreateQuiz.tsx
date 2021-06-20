@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { createQuiz } from '../../../store/reducer';
+import { createQuiz } from '../../../store/quizReducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import TeacherCreateQuestion from '../TeacherCreateQuestion/TeacherCreateQuestion';
 import { Container} from './TeacherCreateQuiz-style';

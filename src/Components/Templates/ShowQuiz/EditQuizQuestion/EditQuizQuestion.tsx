@@ -1,7 +1,10 @@
 import { Button, TextField } from '@material-ui/core';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editQuizQuestion, removeQuestion } from '../../../../store/reducer';
+import {
+  editQuizQuestion,
+  removeQuestion
+} from '../../../../store/quizReducer';
 
 type EditQuizQuestionProps = {
   editContent: string;

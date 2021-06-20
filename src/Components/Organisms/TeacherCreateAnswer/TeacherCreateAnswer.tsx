@@ -10,7 +10,7 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { QuizAnswers } from '../../../models/models';
-import { addAnswer } from '../../../store/reducer';
+import { addAnswer } from '../../../store/quizReducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import { Container } from './TeacherCreateAnswer-style';
 

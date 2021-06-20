@@ -20,7 +20,7 @@ const ContentBoxStudent: React.FC<ContentBoxStudentProps> = () => {
   const { isOpen, handleCloseModal, handleOpenModal } = useModal();
   const [modalContent, setModalContent] = useState<fetchedPosts>();
   const { user } = useSelector(
-    (state: reduxState) => state.dataFromApiForStudents
+    (state: reduxState) => state.datasForStudents.dataFromApiForStudents
   );
 
   const style = useSpring({

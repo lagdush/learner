@@ -41,14 +41,22 @@ export type QuizQuestions = {question: string, answers: QuizAnswers[]};
 export type QuizSection = { questions: QuizQuestions[] };
 export type CompletedQuiz = { title: {title: string}, questions: QuizQuestions[][] };
 
-export interface reduxState{
-  dataFromApiForStudents: IFetchedData,
-  loading: boolean,
-  error: string,
+type QuizCreateReducer = {
   answer: QuizAnswers,
   quizQuestion: QuizQuestions,
   quizSection: QuizSection,
   completeQuiz: CompletedQuiz
+}
+
+type DatasForStudentsReducer ={
+  dataFromApiForStudents: IFetchedData,
+  loading: boolean,
+  error: string,
+}
+
+export interface reduxState{
+  datasForStudents: DatasForStudentsReducer
+  quizCreate: QuizCreateReducer
 };
 
 

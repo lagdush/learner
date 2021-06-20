@@ -9,14 +9,18 @@ import EditQuizQuestion from './EditQuizQuestion/EditQuizQuestion';
 const ShowQuiz: React.FC = () => {
   const [isEdit, setEdit] = useState(true);
   const [isEditQuestion, setEditQuestion] = useState(true);
-  const { title } = useSelector((state: reduxState) => state.completeQuiz);
-  const quizState = useSelector((state: reduxState) => state.quizSection);
+  const { title } = useSelector(
+    (state: reduxState) => state.quizCreate.completeQuiz.title
+  );
+  const quizState = useSelector(
+    (state: reduxState) => state.quizCreate.quizSection
+  );
 
   //TODO: Naprawić edycje elementów, muszą się aktualizować niezależnie
 
   return (
     <Container>
-      <h1>Quiz: {title.title}</h1>
+      <h1>Quiz: {title} </h1>
       <div style={{ display: 'flex' }}>
         <Button
           style={{ margin: '1rem' }}

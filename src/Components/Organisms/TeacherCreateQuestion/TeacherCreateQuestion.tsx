@@ -6,7 +6,7 @@ import {
   addQuestion,
   createQuizSection,
   resetAnswersArray
-} from '../../../store/reducer';
+} from '../../../store/quizReducer';
 import StyledTextField from '../../Atoms/StyledTextField/StyledTextField';
 import TeacherCreateAnswer from '../TeacherCreateAnswer/TeacherCreateAnswer';
 
@@ -15,7 +15,7 @@ type TeacherCreateQuestionProps = {};
 const TeacherCreateQuestion: React.FC<TeacherCreateQuestionProps> = () => {
   const dispatch = useDispatch();
   const hasAnswers = useSelector(
-    (state: reduxState) => state.quizQuestion.answers
+    (state: reduxState) => state.quizCreate.quizQuestion.answers
   );
   const [hasCorrectAnswers, setHasCorrectAnswers] = useState<boolean>();
   const [question, setQuestion] = useState('');

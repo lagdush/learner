@@ -22,7 +22,7 @@ type StateType = {
 };
 const StudentForm: React.FC<StudentFormProps> = () => {
   const { user } = useSelector(
-    (state: reduxState) => state.dataFromApiForStudents
+    (state: reduxState) => state.datasForStudents.dataFromApiForStudents
   );
   const [formState, setFormState] = useState<StateType>({
     teacherEmail: user.email,
